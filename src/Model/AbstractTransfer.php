@@ -15,7 +15,7 @@ abstract class AbstractTransfer extends AbstractItemGroup
 {
     public $isSuccessful = false;
     public $completedAt;
-    public $response;
+    public $responseData;
 
     /**
      * @return DateTime|null
@@ -62,15 +62,16 @@ abstract class AbstractTransfer extends AbstractItemGroup
 
     public function sendRequest(RequestInterface $request)
     {
-        $this->response = $request->send();
+        $response = $request->send();
 
-        if (! $this->response->isRedirect()) {
-            $this->isSuccessful = $this->response->isSuccessful();
+        if (! $response->isRedirect()) {
+            $this->isSuccessful = $response->isSuccessful();
         }
 
         $this->setCompletedAt(new DateTime());
+        $this->responseData = $response->getData();
 
-        return $this->response;
+        return $response;
     }
 
     public function execute(GatewayInterface $gateway, $method, array $parameters)

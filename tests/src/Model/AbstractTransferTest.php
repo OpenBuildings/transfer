@@ -106,7 +106,7 @@ class AbstractTransferTest extends AbstractTestCase
         $response = $this->getMock(
             'Omnipay\Dummy\Message\Response',
             ['isRedirect', 'isSuccessful'],
-            [$request, []]
+            [$request, ['test']]
         );
 
         $request
@@ -128,8 +128,9 @@ class AbstractTransferTest extends AbstractTestCase
 
         $basket = new Basket(['currency' => 'BGN', 'id' => 20]);
 
-        $basket->sendRequest($request);
-        $this->assertSame($response, $basket->response);
+        $result = $basket->sendRequest($request);
+        $this->assertSame($response, $result);
+        $this->assertEquals($response->getData(), $basket->responseData);
         $this->assertFalse($basket->isSuccessful);
 
         $this->assertTrue($current >= $basket->completedAt);
@@ -137,7 +138,8 @@ class AbstractTransferTest extends AbstractTestCase
         $basket = new Basket(['currency' => 'BGN', 'id' => 20]);
 
         $basket->sendRequest($request);
-        $this->assertSame($response, $basket->response);
+        $this->assertSame($response, $result);
+        $this->assertEquals($response->getData(), $basket->responseData);
         $this->assertFalse($basket->isSuccessful);
 
         $this->assertTrue($current >= $basket->completedAt);
@@ -145,7 +147,8 @@ class AbstractTransferTest extends AbstractTestCase
         $basket = new Basket(['currency' => 'BGN', 'id' => 20]);
 
         $basket->sendRequest($request);
-        $this->assertSame($response, $basket->response);
+        $this->assertSame($response, $result);
+        $this->assertEquals($response->getData(), $basket->responseData);
         $this->assertTrue($basket->isSuccessful);
 
         $this->assertTrue($current >= $basket->completedAt);
@@ -167,7 +170,7 @@ class AbstractTransferTest extends AbstractTestCase
         );
 
         $request = new AuthorizeRequest(new HttpClient(), new HttpRequest());
-        $response = new Response($request, []);
+        $response = new Response($request, ['data']);
 
         $basket
             ->expects($this->once())

@@ -18,12 +18,8 @@ abstract class AbstractTransfer extends AbstractItemGroup
 
         $this
 
-            ->addAsserts([
-                new Assert\IsInstanceOf('response', 'Omnipay\Common\Message\ResponseInterface'),
-            ])
-
             ->addSerializers([
-                new Serializer\Native('response'),
+                new Serializer\Json('responseData'),
             ]);
     }
 }

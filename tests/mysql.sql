@@ -27,7 +27,7 @@ CREATE TABLE `Basket` (
   `isSuccessful` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   `completedAt` TIMESTAMP NULL,
   `deletedAt` TIMESTAMP NULL,
-  `response` TEXT,
+  `responseData` TEXT,
   `currency` varchar(3) NULL,
   `amount` int(11) UNSIGNED NULL,
   PRIMARY KEY  (`id`)
