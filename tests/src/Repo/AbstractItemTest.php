@@ -1,0 +1,60 @@
+<?php
+
+namespace Harp\Transfer\Test\Repo;
+
+use Harp\Transfer\Test\Model;
+use Harp\Transfer\Test\AbstractTestCase;
+
+/**
+ * @coversDefaultClass Harp\Transfer\Repo\AbstractItem
+ *
+ * @author    Ivan Kerin <ikerin@gmail.com>
+ * @copyright 2014, Clippings Ltd.
+ * @license   http://spdx.org/licenses/BSD-3-Clause
+ */
+class AbstractItemTest extends AbstractTestCase
+{
+    /**
+     * @covers ::initialize
+     */
+    public function testInitialize()
+    {
+        $repo = new ProductItem('Harp\Transfer\Test\Model\ProductItem');
+
+        $this->assertTrue($repo->getInherited());
+        $this->assertTrue($repo->getSoftDelete());
+    }
+
+    /**
+     * @coversNothing
+     */
+    public function testAsserts()
+    {
+        $item = new Model\ProductItem(['price' => 'aaa', 'quantity' => -12]);
+
+        $item->validate();
+
+        $this->assertEquals(
+            'price is an invalid number, quantity should be greater than 0',
+            $item->getErrors()->humanize()
+        );
+
+        $item = new Model\ProductItem(['quantity' => null]);
+
+        $item->validate();
+
+        $this->assertEquals(
+            'quantity must be present',
+            $item->getErrors()->humanize()
+        );
+
+        $item = new Model\ProductItem(['quantity' => 'asd123']);
+
+        $item->validate();
+
+        $this->assertEquals(
+            'quantity is an invalid number, quantity should be greater than 0',
+            $item->getErrors()->humanize()
+        );
+    }
+}
