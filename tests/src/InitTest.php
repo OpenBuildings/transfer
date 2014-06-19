@@ -49,7 +49,5 @@ class InitTest extends AbstractTestCase
         ];
 
         $response = $basket->purchase($gateway, $parameters);
-
-        var_dump($response);
     }
 }
