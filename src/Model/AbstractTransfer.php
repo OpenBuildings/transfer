@@ -2,13 +2,8 @@
 
 namespace Harp\Transfer\Model;
 
-use Harp\Harp\AbstractModel;
-use Harp\Transfer\Repo;
 use Omnipay\Common\Message\RequestInterface;
 use Omnipay\Common\GatewayInterface;
-use Harp\Core\Model\SoftDeleteTrait;
-use SebastianBergmann\Money\Currency;
-use SebastianBergmann\Money\Money;
 use DateTime;
 
 /**
@@ -16,16 +11,11 @@ use DateTime;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-abstract class AbstractTransfer extends AbstractModel
+abstract class AbstractTransfer extends AbstractItemGroup
 {
-    use SoftDeleteTrait;
-
-    public $id;
     public $isSuccessful = false;
-    public $amount = 0;
     public $completedAt;
     public $response;
-    public $currency = 'GBP';
 
     /**
      * @return DateTime|null
@@ -41,43 +31,6 @@ abstract class AbstractTransfer extends AbstractModel
     public function setCompletedAt(DateTime $dateTime)
     {
         $this->completedAt = $dateTime->format('Y-m-d H:i:s');
-
-        return $this;
-    }
-
-    public function getAmount()
-    {
-        return new Money($this->amount, $this->getCurrency());
-    }
-
-    public function getCurrency()
-    {
-        return new Currency($this->currency);
-    }
-
-    public function getTotal()
-    {
-        $prices = $this->getItems()->get()->map(function(AbstractItem $item){
-            return $item->getTotalPrice()->getAmount();
-        });
-
-        return new Money(array_sum($prices), $this->getCurrency());
-    }
-
-    public function freeze()
-    {
-        foreach ($this->getItems() as $item) {
-            $item->freeze();
-        }
-
-        return $this;
-    }
-
-    public function unfreeze()
-    {
-        foreach ($this->getItems() as $item) {
-            $item->unfreeze();
-        }
 
         return $this;
     }
@@ -133,6 +86,4 @@ abstract class AbstractTransfer extends AbstractModel
 
         return $response;
     }
-
-    abstract public function getItems();
 }
