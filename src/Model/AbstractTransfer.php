@@ -68,7 +68,6 @@ abstract class AbstractTransfer extends AbstractItemGroup
             $this->isSuccessful = $this->response->isSuccessful();
         }
 
-        $this->amount = $request->getAmountInteger();
         $this->setCompletedAt(new DateTime());
 
         return $this->response;

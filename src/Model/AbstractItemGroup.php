@@ -45,6 +45,8 @@ abstract class AbstractItemGroup extends AbstractModel
             $item->freeze();
         }
 
+        $this->amount = $this->getTotal()->getAmount();
+
         return $this;
     }
 
@@ -53,6 +55,8 @@ abstract class AbstractItemGroup extends AbstractModel
         foreach ($this->getItems() as $item) {
             $item->unfreeze();
         }
+
+        $this->amount = null;
 
         return $this;
     }
