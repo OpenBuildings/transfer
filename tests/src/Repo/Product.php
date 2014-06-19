@@ -24,7 +24,7 @@ class Product extends AbstractRepo
         $this
             ->addAsserts([
                 new Assert\Present('currency'),
-                new Assert\AssertCurrency('currency'),
+                new AssertCurrency('currency'),
                 new Assert\Number('price'),
                 new Assert\LengthEquals('currency', 3),
             ]);
