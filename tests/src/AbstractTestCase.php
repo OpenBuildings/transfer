@@ -36,10 +36,15 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
 
         Converter::initialize(new NullSource());
 
+
+
         DB::setConfig('default', array(
             'dsn' => 'mysql:dbname=harp-orm/transfer;host=127.0.0.1',
             'username' => 'root',
         ));
+
+        DB::get()->execute('ALTER TABLE Basket AUTO_INCREMENT = 1', array());
+        DB::get()->execute('ALTER TABLE Item AUTO_INCREMENT = 1', array());
 
         DB::get()->setLogger($this->logger);
         DB::get()->beginTransaction();
