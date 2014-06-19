@@ -1,0 +1,22 @@
+{
+    "name": "harp-orm/transfer",
+    "description": "Persistent Omnipay Request / Response Objects",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Ivan Kerin",
+            "email": "ikerin@gmail.com",
+            "role": "Author"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "harp-orm/harp": "*"
+    },
+    "require-dev": {
+        "psr/log": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {"Harp\\Transfer\\": "src/"}
+    }
+}
