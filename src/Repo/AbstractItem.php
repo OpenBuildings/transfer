@@ -20,6 +20,7 @@ abstract class AbstractItem extends AbstractRepo
             ->setSoftDelete(true)
             ->addAsserts([
                 new Assert\Number('price'),
+                new Assert\Present('quantity'),
                 new Assert\Number('quantity'),
                 new Assert\GreaterThan('quantity', 0),
             ]);

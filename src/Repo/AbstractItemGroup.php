@@ -17,11 +17,11 @@ abstract class AbstractItemGroup extends AbstractRepo
     public function initialize()
     {
         $this
+            ->setSoftDelete(true)
             ->addAsserts([
                 new Assert\Present('currency'),
                 new AssertCurrency('currency'),
-                new Assert\Number('price'),
-                new Assert\LengthEquals('currency', 3),
+                new Assert\Number('amount'),
             ]);
     }
 }
