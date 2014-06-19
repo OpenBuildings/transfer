@@ -4,6 +4,7 @@ namespace Harp\Transfer\Test\Repo;
 
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
+use Harp\Transfer\AssertCurrency;
 use Harp\Harp\Rel;
 
 /**
@@ -23,6 +24,7 @@ class Product extends AbstractRepo
         $this
             ->addAsserts([
                 new Assert\Present('currency'),
+                new Assert\AssertCurrency('currency'),
                 new Assert\Number('price'),
                 new Assert\LengthEquals('currency', 3),
             ]);

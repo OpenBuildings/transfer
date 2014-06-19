@@ -4,6 +4,8 @@ namespace Harp\Transfer\Repo;
 
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
+use Harp\Transfer\AssertCurrency;
+use InvalidArgumentException;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -17,6 +19,7 @@ abstract class AbstractItemGroup extends AbstractRepo
         $this
             ->addAsserts([
                 new Assert\Present('currency'),
+                new AssertCurrency('currency'),
                 new Assert\Number('price'),
                 new Assert\LengthEquals('currency', 3),
             ]);
