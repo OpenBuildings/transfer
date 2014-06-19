@@ -50,7 +50,7 @@ abstract class AbstractItem extends AbstractModel
     public function freeze()
     {
         if (! $this->isFrozen) {
-            $this->price = $this->getPrice()->getAmount();
+            $this->setPrice($this->getPrice());
             $this->isFrozen = true;
         }
 
