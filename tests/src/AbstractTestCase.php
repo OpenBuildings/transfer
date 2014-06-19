@@ -5,6 +5,8 @@ namespace Harp\Transfer\Test;
 use Harp\Query\DB;
 use PHPUnit_Framework_TestCase;
 use Harp\Transfer\Test\Repo;
+use CL\CurrencyConvert\Converter;
+use CL\CurrencyConvert\NullSource;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -32,6 +34,8 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
 
         $this->logger = new TestLogger();
 
+        Converter::initialize(new NullSource());
+
         DB::setConfig('default', array(
             'dsn' => 'mysql:dbname=harp-orm/transfer;host=127.0.0.1',
             'username' => 'root',
@@ -40,7 +44,9 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
         DB::get()->setLogger($this->logger);
         DB::get()->beginTransaction();
 
-        Repo\Test::get()->clear();
+        Repo\Basket::get()->clear();
+        Repo\Product::get()->clear();
+        Repo\ProductItem::get()->clear();
     }
 
     public function tearDown()

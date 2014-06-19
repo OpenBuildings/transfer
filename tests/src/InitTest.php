@@ -2,6 +2,9 @@
 
 namespace Harp\Transfer\Test;
 
+use Harp\Transfer\Test\Repo;
+use Harp\Transfer\Test\Model;
+
 /**
  * @coversDefaultClass Harp\Transfer\Init
  *
@@ -16,6 +19,24 @@ class InitTest extends AbstractTestCase
      */
     public function testTest()
     {
+        $basket = new Model\Basket();
+        $product1 = Repo\Product::get()->find(1);
+        $product2 = Repo\Product::get()->find(2);
 
+        $item1 = new Model\ProductItem(['quantity' => 2]);
+        $item1->setProduct($product1);
+
+        $item2 = new Model\ProductItem(['quantity' => 4]);
+        $item2->setProduct($product2);
+
+        $basket->getItems()
+            ->add($item1)
+            ->add($item2);
+
+        $basket->freeze();
+
+        Repo\Basket::get()->save($basket);
+
+        var_export($this->getLogger()->getEntries());
     }
 }

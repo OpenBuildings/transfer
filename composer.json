@@ -9,9 +9,25 @@
             "role": "Author"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/harp-orm/core"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/harp-orm/validate"
+        }
+    ],
     "require": {
         "php": ">=5.4.0",
-        "harp-orm/harp": "*"
+        "harp-orm/harp": "dev-master",
+        "harp-orm/query": "dev-master",
+        "harp-orm/validate": "dev-master",
+        "harp-orm/serializer": "dev-master",
+        "harp-orm/core": "dev-master",
+        "clippings/currency-convert": "~0.1",
+        "omnipay/dummy": "~2.0"
     },
     "require-dev": {
         "psr/log": "~1.0"

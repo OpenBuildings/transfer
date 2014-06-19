@@ -1,14 +1,39 @@
-DROP TABLE IF EXISTS `Test`;
-CREATE TABLE `Test` (
+DROP TABLE IF EXISTS `Item`;
+CREATE TABLE `Item` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NULL,
-  `isTest` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
-  `testId` int(11) UNSIGNED NULL,
-  `testClass` varchar(255) NULL,
+  `class` varchar(255) NULL,
+  `isFrozen` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
+  `transferId` int(11) UNSIGNED NULL,
+  `refId` int(11) UNSIGNED NULL,
+  `price` int(11) UNSIGNED NULL,
+  `quantity` int(3) UNSIGNED NULL,
   `deletedAt` TIMESTAMP NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `Test` (`id`, `name`, `isTest`, `testId`, `testClass`, `deletedAt`)
+DROP TABLE IF EXISTS `Product`;
+CREATE TABLE `Product` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NULL,
+  `currency` varchar(3) NULL,
+  `price` int(11) UNSIGNED NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `Basket`;
+CREATE TABLE `Basket` (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NULL,
+  `isSuccessful` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
+  `completedAt` TIMESTAMP NULL,
+  `deletedAt` TIMESTAMP NULL,
+  `response` TEXT,
+  `currency` varchar(3) NULL,
+  `amount` int(11) UNSIGNED NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Product` (`id`, `name`, `currency`, `price`)
 VALUES
-  (1, 'Test', 1, 100, 'Harp\\Transfer\\Init', NULL);
+  (1, 'Product 1', 'GBP', 10000),
+  (2, 'Product 2', 'EUR', 20000);

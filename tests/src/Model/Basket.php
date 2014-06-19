@@ -3,6 +3,7 @@
 namespace Harp\Transfer\Test\Model;
 
 use Harp\Harp\AbstractModel;
+use Harp\Transfer\Model\AbstractTransfer;
 use Harp\Transfer\Test\Repo;
 
 /**
@@ -10,20 +11,15 @@ use Harp\Transfer\Test\Repo;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class Test extends AbstractModel
+class Basket extends AbstractTransfer
 {
-    /**
-     * @return Repo\Test
-     */
     public function getRepo()
     {
-        return Repo\Test::get();
+        return Repo\Basket::get();
     }
 
-    public $id;
-    public $name;
-    public $isTest = false;
-    public $testId;
-    public $testClass;
-    public $deletedAt;
+    public function getItems()
+    {
+        return $this->getLink('items');
+    }
 }
