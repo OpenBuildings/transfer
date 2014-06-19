@@ -5,6 +5,7 @@ namespace Harp\Transfer\Model;
 use Harp\Harp\AbstractModel;
 use Harp\Transfer\Repo;
 use Omnipay\Common\Message\RequestInterface;
+use Omnipay\Common\GatewayInterface;
 use Harp\Core\Model\SoftDeleteTrait;
 use SebastianBergmann\Money\Currency;
 use SebastianBergmann\Money\Money;
@@ -56,8 +57,8 @@ abstract class AbstractTransfer extends AbstractModel
 
     public function getTotal()
     {
-        $prices = $this->getItems()->get()->map(function(BasketItem $item){
-            return $item->getPrice()->getAmount();
+        $prices = $this->getItems()->get()->map(function(AbstractItem $item){
+            return $item->getTotalPrice()->getAmount();
         });
 
         return new Money(array_sum($prices), $this->getCurrency());
@@ -110,13 +111,28 @@ abstract class AbstractTransfer extends AbstractModel
     {
         $this->response = $request->send();
 
-        $this->isSuccessful = $this->response->isSuccessful();
+        if (! $this->response->isRedirect()) {
+            $this->isSuccessful = $this->response->isSuccessful();
+        }
+
         $this->amount = $request->getAmountInteger();
         $this->setCompletedAt(new DateTime());
 
         return $this->response;
     }
 
-    abstract public function getItems();
+    public function execute(GatewayInterface $gateway, $method, array $parameters)
+    {
+        $this->freeze();
 
+        $request = $gateway->$method($this->getRequestParameters($parameters));
+
+        $response = $this->sendRequest($request);
+
+        $this->getRepo()->save($this);
+
+        return $response;
+    }
+
+    abstract public function getItems();
 }

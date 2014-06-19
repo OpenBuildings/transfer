@@ -5,6 +5,7 @@ namespace Harp\Transfer\Test\Model;
 use Harp\Harp\AbstractModel;
 use Harp\Transfer\Model\AbstractTransfer;
 use Harp\Transfer\Test\Repo;
+use Omnipay\Common\GatewayInterface;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -21,5 +22,10 @@ class Basket extends AbstractTransfer
     public function getItems()
     {
         return $this->getLink('items');
+    }
+
+    public function purchase(GatewayInterface $gateway, array $parameters)
+    {
+        return parent::execute($gateway, 'purchase', $parameters);
     }
 }

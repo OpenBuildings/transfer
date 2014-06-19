@@ -4,6 +4,7 @@ namespace Harp\Transfer\Test;
 
 use Harp\Transfer\Test\Repo;
 use Harp\Transfer\Test\Model;
+use Omnipay\Omnipay;
 
 /**
  * @coversDefaultClass Harp\Transfer\Init
@@ -33,10 +34,22 @@ class InitTest extends AbstractTestCase
             ->add($item1)
             ->add($item2);
 
-        $basket->freeze();
-
         Repo\Basket::get()->save($basket);
 
-        var_export($this->getLogger()->getEntries());
+        $gateway = Omnipay::getFactory()->create('Dummy');
+
+        $parameters = [
+            'card' => [
+                'number' => '4242424242424242',
+                'expiryMonth' => 7,
+                'expiryYear' => 2014,
+                'cvv' => 123,
+            ],
+            'clientIp' => '192.168.0.1',
+        ];
+
+        $response = $basket->purchase($gateway, $parameters);
+
+        var_dump($response);
     }
 }
