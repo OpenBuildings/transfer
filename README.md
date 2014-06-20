@@ -13,7 +13,7 @@ All the Model / Repo classes are abstract so you'll need to implement them in yo
 Usage
 -----
 
-There are 3 main models:
+There are 3 main abstract models:
 
 - __AbstractItem__ - Model that can be inherited, providing the basic "item" of a transaction. It can will be "frozen" so the price cannot be changed after the transaction is complete.
 - __AbstractItemGroup__ - Groups several items together with ability to get total price, and freeze / unfreeze all items
