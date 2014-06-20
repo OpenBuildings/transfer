@@ -3,6 +3,7 @@
 namespace Harp\Transfer\Test\Repo;
 
 use Harp\Transfer\Repo\AbstractTransfer;
+use Harp\Money\Repo\CurrencyTrait;
 use Harp\Harp\Rel;
 
 /**
@@ -12,6 +13,8 @@ use Harp\Harp\Rel;
  */
 class Basket extends AbstractTransfer
 {
+    use CurrencyTrait;
+
     public static function newInstance()
     {
         return new Basket('Harp\Transfer\Test\Model\Basket');
@@ -22,6 +25,7 @@ class Basket extends AbstractTransfer
         parent::initialize();
 
         $this
+            ->initializeCurrency()
             ->addRels([
                 new Rel\HasMany('items', $this, ProductItem::get(), ['foreignKey' => 'transferId']),
             ]);

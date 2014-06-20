@@ -16,7 +16,6 @@ use SebastianBergmann\Money\Money;
 abstract class AbstractItemGroup extends AbstractModel
 {
     use SoftDeleteTrait;
-    use CurrencyTrait;
     use FreezableValueTrait;
 
     public $id;

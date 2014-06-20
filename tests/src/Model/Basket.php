@@ -3,6 +3,7 @@
 namespace Harp\Transfer\Test\Model;
 
 use Harp\Transfer\Model\AbstractTransfer;
+use Harp\Money\Model\CurrencyTrait;
 use Harp\Transfer\Test\Repo;
 use Omnipay\Common\GatewayInterface;
 
@@ -13,6 +14,8 @@ use Omnipay\Common\GatewayInterface;
  */
 class Basket extends AbstractTransfer
 {
+    use CurrencyTrait;
+
     public function getRepo()
     {
         return Repo\Basket::get();

@@ -36,8 +36,6 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
 
         Converter::initialize(new NullSource());
 
-
-
         DB::setConfig('default', array(
             'dsn' => 'mysql:dbname=harp-orm/transfer;host=127.0.0.1',
             'username' => 'root',

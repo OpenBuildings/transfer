@@ -56,7 +56,7 @@ class InitegrationTest extends AbstractTestCase
         $this->assertQueries([
             'SELECT Product.* FROM Product WHERE (id = 1) LIMIT 1',
             'SELECT Product.* FROM Product WHERE (id = 2) LIMIT 1',
-            'INSERT INTO Basket (isSuccessful, completedAt, responseData, id, deletedAt, currency, isFrozen, value) VALUES (, NULL, NULL, NULL, NULL, "GBP", , 0)',
+            'INSERT INTO Basket (isSuccessful, completedAt, responseData, id, deletedAt, isFrozen, value, currency) VALUES (, NULL, NULL, NULL, NULL, , 0, "GBP")',
             'INSERT INTO Item (id, class, transferId, refId, quantity, deletedAt, isFrozen, value) VALUES (NULL, "Harp\\Transfer\\Test\\Model\\ProductItem", NULL, NULL, 2, NULL, , 0), (NULL, "Harp\\Transfer\\Test\\Model\\ProductItem", NULL, NULL, 4, NULL, , 0)',
             'UPDATE Item SET transferId = CASE id WHEN 1 THEN "1" WHEN 2 THEN "1" ELSE transferId END, refId = CASE id WHEN 1 THEN 1 WHEN 2 THEN 2 ELSE refId END WHERE (id IN (1, 2))',
             'SELECT Basket.* FROM Basket WHERE (id IN ("1")) AND (Basket.deletedAt IS NULL)',

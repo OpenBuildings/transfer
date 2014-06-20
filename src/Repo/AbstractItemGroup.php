@@ -6,7 +6,6 @@ use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
 use Harp\Transfer\AssertCurrency;
 use Harp\Money\Repo\FreezableValueTrait;
-use Harp\Money\Repo\CurrencyTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -16,13 +15,11 @@ use Harp\Money\Repo\CurrencyTrait;
 abstract class AbstractItemGroup extends AbstractRepo
 {
     use FreezableValueTrait;
-    use CurrencyTrait;
 
     public function initialize()
     {
         $this
             ->setSoftDelete(true)
-            ->initializeFreezableValue()
-            ->initializeCurrency();
+            ->initializeFreezableValue();
     }
 }
