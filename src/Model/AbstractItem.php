@@ -21,9 +21,14 @@ abstract class AbstractItem extends AbstractModel
     public $refId;
     public $quantity = 1;
 
-    public function getName()
+    public function getDescription()
     {
         return 'Item';
+    }
+
+    public function getName()
+    {
+        return $this->getId();
     }
 
     public function getTotalValue()

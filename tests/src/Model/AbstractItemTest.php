@@ -18,12 +18,14 @@ class AbstractItemTest extends AbstractTestCase
 {
     /**
      * @covers ::getName
+     * @covers ::getDescription
      */
     public function testGetName()
     {
-        $item = new ProductItem();
+        $item = new ProductItem(['id' => 1232]);
 
-        $this->assertSame('Item', $item->getName());
+        $this->assertSame('Item', $item->getDescription());
+        $this->assertSame(1232, $item->getName());
     }
 
     /**

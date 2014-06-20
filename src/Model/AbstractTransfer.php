@@ -46,8 +46,8 @@ abstract class AbstractTransfer extends AbstractItemGroup
 
         foreach ($this->getItems() as $item) {
             $parameters['items'] []= [
-                'name' => $item->getId(),
-                'description' => $item->getName(),
+                'name' => $item->getName(),
+                'description' => $item->getDescription(),
                 'price' => (float) ($item->getValue()->getAmount() / 100),
                 'quantity' => $item->quantity,
             ];
