@@ -5,7 +5,6 @@ namespace Harp\Transfer\Test\Repo;
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
 use Harp\Transfer\AssertCurrency;
-use Harp\Harp\Rel;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>

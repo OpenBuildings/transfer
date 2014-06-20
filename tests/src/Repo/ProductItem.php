@@ -2,9 +2,7 @@
 
 namespace Harp\Transfer\Test\Repo;
 
-use Harp\Harp\AbstractRepo;
 use Harp\Transfer\Repo\AbstractItem;
-use Harp\Transfer\Test\Model;
 use Harp\Harp\Rel;
 
 /**

@@ -2,7 +2,6 @@
 
 namespace Harp\Transfer\Test\Model;
 
-use Harp\Harp\AbstractModel;
 use Harp\Transfer\Model\AbstractTransfer;
 use Harp\Transfer\Test\Repo;
 use Omnipay\Common\GatewayInterface;
