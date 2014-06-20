@@ -1,9 +1,9 @@
 <?php
 
-namespace Harp\Transfer\Test\Model;
+namespace CL\Transfer\Test\Model;
 
-use Harp\Transfer\Model\AbstractItem;
-use Harp\Transfer\Test\Repo;
+use CL\Transfer\Model\AbstractItem;
+use CL\Transfer\Test\Repo;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>

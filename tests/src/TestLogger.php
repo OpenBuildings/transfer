@@ -1,6 +1,6 @@
 <?php
 
-namespace Harp\Transfer\Test;
+namespace CL\Transfer\Test;
 
 use Psr\Log\AbstractLogger;
 use Harp\Query\Compiler\Compiler;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Harp\Transfer\Test\Repo;
+namespace CL\Transfer\Test\Repo;
 
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
-use Harp\Transfer\AssertCurrency;
+use CL\Transfer\AssertCurrency;
 use Harp\Money\Repo\ValueTrait;
 use Harp\Money\Repo\CurrencyTrait;
 
@@ -21,7 +21,7 @@ class Product extends AbstractRepo
 
     public static function newInstance()
     {
-        return new Product('Harp\Transfer\Test\Model\Product');
+        return new Product('CL\Transfer\Test\Model\Product');
     }
 
     public function initialize()

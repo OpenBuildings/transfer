@@ -1,6 +1,6 @@
 <?php
 
-namespace Harp\Transfer\Repo;
+namespace CL\Transfer\Repo;
 
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;

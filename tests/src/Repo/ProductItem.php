@@ -1,8 +1,8 @@
 <?php
 
-namespace Harp\Transfer\Test\Repo;
+namespace CL\Transfer\Test\Repo;
 
-use Harp\Transfer\Repo\AbstractItem;
+use CL\Transfer\Repo\AbstractItem;
 use Harp\Harp\Rel;
 
 /**
@@ -14,7 +14,7 @@ class ProductItem extends AbstractItem
 {
     public static function newInstance()
     {
-        return new ProductItem('Harp\Transfer\Test\Model\ProductItem');
+        return new ProductItem('CL\Transfer\Test\Model\ProductItem');
     }
 
     public function initialize()

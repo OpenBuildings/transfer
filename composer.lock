@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "68ba08c44fc5b5a076db4a3f99513dea",
+    "hash": "ac5e6e636304476cb6be2a4fc37bf92c",
     "packages": [
         {
             "name": "clippings/currency-convert",
@@ -374,12 +374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/money.git",
-                "reference": "a163194e7ae35ad166e2246348ea7b435469635b"
+                "reference": "331fa95cf5da127da797a3ed0ca2deeb0264ef2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/money/zipball/a163194e7ae35ad166e2246348ea7b435469635b",
-                "reference": "a163194e7ae35ad166e2246348ea7b435469635b",
+                "url": "https://api.github.com/repos/harp-orm/money/zipball/331fa95cf5da127da797a3ed0ca2deeb0264ef2c",
+                "reference": "331fa95cf5da127da797a3ed0ca2deeb0264ef2c",
                 "shasum": ""
             },
             "require": {
@@ -410,7 +410,7 @@
                 }
             ],
             "description": "Helper Traits for Sebastian Bergmann's Money",
-            "time": "2014-06-20 08:22:36"
+            "time": "2014-06-20 08:56:32"
         },
         {
             "name": "harp-orm/query",

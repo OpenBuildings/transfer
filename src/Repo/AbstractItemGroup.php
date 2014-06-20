@@ -1,10 +1,10 @@
 <?php
 
-namespace Harp\Transfer\Repo;
+namespace CL\Transfer\Repo;
 
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
-use Harp\Transfer\AssertCurrency;
+use CL\Transfer\AssertCurrency;
 use Harp\Money\Repo\FreezableValueTrait;
 
 /**

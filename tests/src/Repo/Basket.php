@@ -1,8 +1,8 @@
 <?php
 
-namespace Harp\Transfer\Test\Repo;
+namespace CL\Transfer\Test\Repo;
 
-use Harp\Transfer\Repo\AbstractTransfer;
+use CL\Transfer\Repo\AbstractTransfer;
 use Harp\Money\Repo\CurrencyTrait;
 use Harp\Harp\Rel;
 
@@ -17,7 +17,7 @@ class Basket extends AbstractTransfer
 
     public static function newInstance()
     {
-        return new Basket('Harp\Transfer\Test\Model\Basket');
+        return new Basket('CL\Transfer\Test\Model\Basket');
     }
 
     public function initialize()

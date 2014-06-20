@@ -22,8 +22,8 @@ install:
 
 before_script:
   - mkdir -p build/logs
-  - mysql -e 'create database `harp-orm/transfer`;'
-  - mysql harp-orm/transfer < tests/mysql.sql
+  - mysql -e 'create database `clippings/transfer`;'
+  - mysql clippings/transfer < tests/mysql.sql
 
 script:
   - phpunit --coverage-clover build/logs/clover.xml

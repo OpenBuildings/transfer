@@ -1,9 +1,9 @@
 <?php
 
-namespace Harp\Transfer\Test;
+namespace CL\Transfer\Test;
 
-use Harp\Transfer\Test\Repo;
-use Harp\Transfer\Test\Model;
+use CL\Transfer\Test\Repo;
+use CL\Transfer\Test\Model;
 use Omnipay\Omnipay;
 
 /**

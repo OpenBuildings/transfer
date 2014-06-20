@@ -1,9 +1,9 @@
 <?php
 
-namespace Harp\Transfer\Test\Model;
+namespace CL\Transfer\Test\Model;
 
 use Harp\Harp\AbstractModel;
-use Harp\Transfer\Test\Repo;
+use CL\Transfer\Test\Repo;
 use Harp\Money\Model\ValueTrait;
 use Harp\Money\Model\CurrencyTrait;
 

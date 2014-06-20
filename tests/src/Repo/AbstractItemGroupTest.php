@@ -1,12 +1,12 @@
 <?php
 
-namespace Harp\Transfer\Test\Repo;
+namespace CL\Transfer\Test\Repo;
 
-use Harp\Transfer\Test\Model;
-use Harp\Transfer\Test\AbstractTestCase;
+use CL\Transfer\Test\Model;
+use CL\Transfer\Test\AbstractTestCase;
 
 /**
- * @coversDefaultClass Harp\Transfer\Repo\AbstractItemGroup
+ * @coversDefaultClass CL\Transfer\Repo\AbstractItemGroup
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.

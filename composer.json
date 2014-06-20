@@ -1,5 +1,5 @@
 {
-    "name": "harp-orm/transfer",
+    "name": "clippings/transfer",
     "description": "Persistent Omnipay Request / Response Objects",
     "license": "BSD-3-Clause",
     "authors": [
@@ -33,6 +33,6 @@
         "psr/log": "~1.0"
     },
     "autoload": {
-        "psr-4": {"Harp\\Transfer\\": "src/"}
+        "psr-4": {"CL\\Transfer\\": "src/"}
     }
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace Harp\Transfer\Test\Model;
+namespace CL\Transfer\Test\Model;
 
-use Harp\Transfer\Test\Repo;
-use Harp\Transfer\Test\AbstractTestCase;
+use CL\Transfer\Test\Repo;
+use CL\Transfer\Test\AbstractTestCase;
 use SebastianBergmann\Money\Money;
 use SebastianBergmann\Money\Currency;
 
 /**
- * @coversDefaultClass Harp\Transfer\Model\AbstractItem
+ * @coversDefaultClass CL\Transfer\Model\AbstractItem
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.

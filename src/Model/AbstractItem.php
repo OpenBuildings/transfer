@@ -1,6 +1,6 @@
 <?php
 
-namespace Harp\Transfer\Model;
+namespace CL\Transfer\Model;
 
 use Harp\Harp\AbstractModel;
 use Harp\Money\Model\FreezableValueTrait;

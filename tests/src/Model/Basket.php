@@ -1,10 +1,10 @@
 <?php
 
-namespace Harp\Transfer\Test\Model;
+namespace CL\Transfer\Test\Model;
 
-use Harp\Transfer\Model\AbstractTransfer;
+use CL\Transfer\Model\AbstractTransfer;
 use Harp\Money\Model\CurrencyTrait;
-use Harp\Transfer\Test\Repo;
+use CL\Transfer\Test\Repo;
 use Omnipay\Common\GatewayInterface;
 
 /**
