@@ -21,7 +21,6 @@ class AbstractItemTest extends AbstractTestCase
     {
         $repo = ProductItem::newInstance();
 
-        $this->assertTrue($repo->getInherited());
         $this->assertTrue($repo->getSoftDelete());
     }
 

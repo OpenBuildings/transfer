@@ -1,7 +1,6 @@
 DROP TABLE IF EXISTS `Item`;
 CREATE TABLE `Item` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `class` varchar(255) NULL,
   `isFrozen` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   `transferId` int(11) UNSIGNED NULL,
   `refId` int(11) UNSIGNED NULL,

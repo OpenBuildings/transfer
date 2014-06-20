@@ -18,7 +18,6 @@ abstract class AbstractItem extends AbstractRepo
     public function initialize()
     {
         $this
-            ->setInherited(true)
             ->setSoftDelete(true)
             ->initializeFreezableValue()
             ->addAsserts([

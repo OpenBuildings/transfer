@@ -17,7 +17,6 @@ abstract class AbstractItem extends AbstractModel
     use FreezableValueTrait;
 
     public $id;
-    public $class;
     public $transferId;
     public $refId;
     public $quantity = 1;
