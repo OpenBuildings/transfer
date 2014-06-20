@@ -7,7 +7,7 @@ use Harp\Transfer\Test\Model;
 use Omnipay\Omnipay;
 
 /**
- * @coversDefaultClass Harp\Transfer\Init
+ * @coversNothing
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
