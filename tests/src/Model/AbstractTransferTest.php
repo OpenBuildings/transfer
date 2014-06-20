@@ -50,7 +50,7 @@ class AbstractTransferTest extends AbstractTestCase
 
         $this->assertFalse($basket->isSent());
 
-        $basket = new Basket(['response' => 'O:8:"stdClass":0:{}']);
+        $basket = new Basket(['responseData' => '{}']);
 
         $this->assertTrue($basket->isSent());
     }

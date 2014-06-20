@@ -3,7 +3,6 @@
 namespace Harp\Transfer\Model;
 
 use Harp\Harp\AbstractModel;
-use Harp\Transfer\Repo;
 use Harp\Core\Model\SoftDeleteTrait;
 use CL\CurrencyConvert\Converter;
 use SebastianBergmann\Money\Money;
@@ -30,6 +29,9 @@ abstract class AbstractItem extends AbstractModel
         return 'Item';
     }
 
+    /**
+     * @return Money
+     */
     public function getPrice()
     {
         $currency = $this->getCurrency();

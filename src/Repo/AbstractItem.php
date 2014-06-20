@@ -4,7 +4,6 @@ namespace Harp\Transfer\Repo;
 
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
-use Harp\Harp\Rel;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>

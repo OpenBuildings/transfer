@@ -37,7 +37,7 @@ abstract class AbstractTransfer extends AbstractItemGroup
 
     public function isSent()
     {
-        return (bool) $this->response;
+        return $this->responseData !== null;
     }
 
     public function getRequestParameters(array $defaultParameters)

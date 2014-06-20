@@ -5,7 +5,6 @@ namespace Harp\Transfer\Repo;
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
 use Harp\Transfer\AssertCurrency;
-use InvalidArgumentException;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>

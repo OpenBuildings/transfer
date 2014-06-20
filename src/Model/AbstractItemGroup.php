@@ -32,7 +32,7 @@ abstract class AbstractItemGroup extends AbstractModel
 
     public function getTotal()
     {
-        $prices = $this->getItems()->get()->map(function(AbstractItem $item){
+        $prices = $this->getItems()->get()->map(function (AbstractItem $item) {
             return $item->getTotalPrice()->getAmount();
         });
 

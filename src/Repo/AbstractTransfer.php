@@ -2,7 +2,6 @@
 
 namespace Harp\Transfer\Repo;
 
-use Harp\Validate\Assert;
 use Harp\Serializer;
 
 /**
