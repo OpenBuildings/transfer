@@ -24,7 +24,7 @@ class AbstractTransferTest extends AbstractTestCase
      */
     public function testInitialize()
     {
-        $repo = new Basket('Harp\Transfer\Test\Model\Basket');
+        $repo = Basket::newInstance();
 
         $this->assertTrue($repo->getSoftDelete());
     }

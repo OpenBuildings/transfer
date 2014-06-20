@@ -4,8 +4,8 @@ namespace Harp\Transfer\Test\Model;
 
 use Harp\Harp\AbstractModel;
 use Harp\Transfer\Test\Repo;
-use SebastianBergmann\Money\Money;
-use SebastianBergmann\Money\Currency;
+use Harp\Money\Model\ValueTrait;
+use Harp\Money\Model\CurrencyTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -14,23 +14,14 @@ use SebastianBergmann\Money\Currency;
  */
 class Product extends AbstractModel
 {
+    use ValueTrait;
+    use CurrencyTrait;
+
     public $id;
     public $name;
-    public $price = 0;
-    public $currency = 'GBP';
 
     public function getRepo()
     {
         return Repo\Product::get();
-    }
-
-    public function getCurrency()
-    {
-        return new Currency($this->currency);
-    }
-
-    public function getPrice()
-    {
-        return new Money($this->price, $this->getCurrency());
     }
 }

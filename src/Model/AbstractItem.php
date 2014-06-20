@@ -3,9 +3,8 @@
 namespace Harp\Transfer\Model;
 
 use Harp\Harp\AbstractModel;
+use Harp\Money\Model\FreezableValueTrait;
 use Harp\Core\Model\SoftDeleteTrait;
-use CL\CurrencyConvert\Converter;
-use SebastianBergmann\Money\Money;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -15,68 +14,21 @@ use SebastianBergmann\Money\Money;
 abstract class AbstractItem extends AbstractModel
 {
     use SoftDeleteTrait;
+    use FreezableValueTrait;
 
     public $id;
     public $class;
     public $transferId;
     public $refId;
     public $quantity = 1;
-    public $price = 0;
-    public $isFrozen = false;
 
     public function getName()
     {
         return 'Item';
     }
 
-    /**
-     * @return Money
-     */
-    public function getPrice()
+    public function getTotalValue()
     {
-        $currency = $this->getCurrency();
-
-        if ($this->isFrozen) {
-            return new Money($this->price, $currency);
-        } else {
-            $price = $this->getRefPrice();
-
-            if ($currency != $price->getCurrency()) {
-                $price = Converter::get()->convert($price, $currency);
-            }
-
-            return $price;
-        }
+        return $this->getValue()->multiply($this->quantity);
     }
-
-    public function freeze()
-    {
-        if (! $this->isFrozen) {
-            $this->setPrice($this->getPrice());
-            $this->isFrozen = true;
-        }
-
-        return $this;
-    }
-
-    public function unfreeze()
-    {
-        $this->isFrozen = false;
-        $this->price = null;
-
-        return $this;
-    }
-
-    public function setPrice(Money $price)
-    {
-        $this->price = $price->getAmount();
-    }
-
-    public function getTotalPrice()
-    {
-        return $this->getPrice()->multiply($this->quantity);
-    }
-
-    abstract public function getRefPrice();
-    abstract public function getCurrency();
 }

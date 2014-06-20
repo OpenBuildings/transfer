@@ -4,7 +4,8 @@ namespace Harp\Transfer\Model;
 
 use Harp\Harp\AbstractModel;
 use Harp\Core\Model\SoftDeleteTrait;
-use SebastianBergmann\Money\Currency;
+use Harp\Money\Model\FreezableValueTrait;
+use Harp\Money\Model\CurrencyTrait;
 use SebastianBergmann\Money\Money;
 
 /**
@@ -15,50 +16,36 @@ use SebastianBergmann\Money\Money;
 abstract class AbstractItemGroup extends AbstractModel
 {
     use SoftDeleteTrait;
+    use CurrencyTrait;
+    use FreezableValueTrait;
 
     public $id;
-    public $amount = 0;
-    public $currency = 'GBP';
 
-    public function getAmount()
-    {
-        return new Money($this->amount, $this->getCurrency());
-    }
-
-    public function getCurrency()
-    {
-        return new Currency($this->currency);
-    }
-
-    public function getTotal()
+    public function getSourceValue()
     {
         $prices = $this->getItems()->get()->map(function (AbstractItem $item) {
-            return $item->getTotalPrice()->getAmount();
+            return $item->getTotalValue()->getAmount();
         });
 
         return new Money(array_sum($prices), $this->getCurrency());
     }
 
-    public function freeze()
+    public function performFreeze()
     {
         foreach ($this->getItems() as $item) {
             $item->freeze();
         }
 
-        $this->amount = $this->getTotal()->getAmount();
-
-        return $this;
+        $this->setValue($this->getValue());
     }
 
-    public function unfreeze()
+    public function performUnfreeze()
     {
         foreach ($this->getItems() as $item) {
             $item->unfreeze();
         }
 
-        $this->amount = null;
-
-        return $this;
+        $this->value = null;
     }
 
     abstract public function getItems();

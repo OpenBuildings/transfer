@@ -48,12 +48,12 @@ abstract class AbstractTransfer extends AbstractItemGroup
             $parameters['items'] []= [
                 'name' => $item->getId(),
                 'description' => $item->getName(),
-                'price' => (float) ($item->getPrice()->getAmount() / 100),
+                'price' => (float) ($item->getValue()->getAmount() / 100),
                 'quantity' => $item->quantity,
             ];
         }
 
-        $parameters['amount'] = (float) ($this->getTotal()->getAmount() / 100);
+        $parameters['amount'] = (float) ($this->getValue()->getAmount() / 100);
         $parameters['currency'] = $this->currency;
         $parameters['transactionReference'] = $this->getId();
 

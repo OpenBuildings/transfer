@@ -5,6 +5,9 @@ namespace Harp\Transfer\Test\Repo;
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
 use Harp\Transfer\AssertCurrency;
+use Harp\Money\Repo\ValueTrait;
+use Harp\Money\Repo\CurrencyTrait;
+
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -13,6 +16,9 @@ use Harp\Transfer\AssertCurrency;
  */
 class Product extends AbstractRepo
 {
+    use ValueTrait;
+    use CurrencyTrait;
+
     public static function newInstance()
     {
         return new Product('Harp\Transfer\Test\Model\Product');
@@ -21,11 +27,7 @@ class Product extends AbstractRepo
     public function initialize()
     {
         $this
-            ->addAsserts([
-                new Assert\Present('currency'),
-                new AssertCurrency('currency'),
-                new Assert\Number('price'),
-                new Assert\LengthEquals('currency', 3),
-            ]);
+            ->initializeValue()
+            ->initializeCurrency();
     }
 }

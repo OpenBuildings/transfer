@@ -63,8 +63,8 @@ class AbstractTransferTest extends AbstractTestCase
         $basket = new Basket(['currency' => 'BGN', 'id' => 20]);
         $basket
             ->getItems()
-                ->add(new ProductItem(['id' => 1, 'price' => 1000, 'isFrozen' => true, 'quantity' => 2]))
-                ->add(new ProductItem(['id' => 2, 'price' => 2000, 'isFrozen' => true, 'quantity' => 3]));
+                ->add(new ProductItem(['id' => 1, 'value' => 1000, 'isFrozen' => true, 'quantity' => 2]))
+                ->add(new ProductItem(['id' => 2, 'value' => 2000, 'isFrozen' => true, 'quantity' => 3]));
 
         $expected = [
             'items' => [

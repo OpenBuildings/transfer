@@ -18,52 +18,42 @@ use DateTime;
 class AbstractItemGroupTest extends AbstractTestCase
 {
     /**
-     * @covers ::getAmount
+     * @covers ::getSourceValue
      */
-    public function testGetAmount()
-    {
-        $basket = new Basket(['amount' => 3200, 'currency' => 'BGN']);
-
-        $this->assertEquals(new Money(3200, new Currency('BGN')), $basket->getAmount());
-    }
-
-    /**
-     * @covers ::getCurrency
-     */
-    public function testGetCurrency()
-    {
-        $basket = new Basket(['currency' => 'BGN']);
-
-        $this->assertEquals(new Currency('BGN'), $basket->getCurrency());
-    }
-
-    /**
-     * @covers ::getTotal
-     */
-    public function testGetTotal()
+    public function testGetSourceValue()
     {
         $basket = new Basket(['currency' => 'BGN']);
         $basket
             ->getItems()
-                ->add(new ProductItem(['price' => 1000, 'isFrozen' => true, 'quantity' => 2]))
-                ->add(new ProductItem(['price' => 2000, 'isFrozen' => true, 'quantity' => 3]));
+                ->add(new ProductItem(['value' => 1000, 'isFrozen' => true, 'quantity' => 2]))
+                ->add(new ProductItem(['value' => 2000, 'isFrozen' => true, 'quantity' => 3]));
 
-        $this->assertEquals(new Money(8000, new Currency('BGN')), $basket->getTotal());
+        $this->assertEquals(new Money(8000, new Currency('BGN')), $basket->getSourceValue());
     }
 
     /**
-     * @covers ::freeze
+     * @covers ::performFreeze
      */
-    public function testFreeze()
+    public function testPerformFreeze()
     {
         $basket = new Basket(['currency' => 'BGN']);
 
-        $item1 = $this->getMock(__NAMESPACE__.'\ProductItem', ['freeze']);
+        $item1 = $this->getMock(
+            __NAMESPACE__.'\ProductItem',
+            ['freeze'],
+            [['value' => 1000, 'isFrozen' => true, 'quantity' => 2]]
+        );
+
         $item1
             ->expects($this->once())
             ->method('freeze');
 
-        $item2 = $this->getMock(__NAMESPACE__.'\ProductItem', ['freeze']);
+        $item2 = $this->getMock(
+            __NAMESPACE__.'\ProductItem',
+            ['freeze'],
+            [['value' => 2000, 'isFrozen' => true, 'quantity' => 3]]
+        );
+
         $item2
             ->expects($this->once())
             ->method('freeze');
@@ -74,14 +64,16 @@ class AbstractItemGroupTest extends AbstractTestCase
                 ->add($item2);
 
         $basket->freeze();
+
+        $this->assertEquals(8000, $basket->value);
     }
 
     /**
-     * @covers ::unfreeze
+     * @covers ::performUnfreeze
      */
     public function testUnfreeze()
     {
-        $basket = new Basket(['currency' => 'BGN']);
+        $basket = new Basket(['currency' => 'BGN', 'value' => 2000, 'isFrozen' => true]);
 
         $item1 = $this->getMock(__NAMESPACE__.'\ProductItem', ['unfreeze']);
         $item1
@@ -99,5 +91,7 @@ class AbstractItemGroupTest extends AbstractTestCase
                 ->add($item2);
 
         $basket->unfreeze();
+
+        $this->assertEquals(0, $basket->value);
     }
 }

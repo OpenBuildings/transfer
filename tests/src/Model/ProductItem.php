@@ -42,8 +42,8 @@ class ProductItem extends AbstractItem
         return $this->getBasket()->getCurrency();
     }
 
-    public function getRefPrice()
+    public function getSourceValue()
     {
-        return $this->getProduct()->getPrice();
+        return $this->getProduct()->getValue();
     }
 }

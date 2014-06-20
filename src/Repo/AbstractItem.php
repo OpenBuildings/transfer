@@ -4,6 +4,7 @@ namespace Harp\Transfer\Repo;
 
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
+use Harp\Money\Repo\FreezableValueTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -12,13 +13,15 @@ use Harp\Validate\Assert;
  */
 abstract class AbstractItem extends AbstractRepo
 {
+    use FreezableValueTrait;
+
     public function initialize()
     {
         $this
             ->setInherited(true)
             ->setSoftDelete(true)
+            ->initializeFreezableValue()
             ->addAsserts([
-                new Assert\Number('price'),
                 new Assert\Present('quantity'),
                 new Assert\Number('quantity'),
                 new Assert\GreaterThan('quantity', 0),

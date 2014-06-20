@@ -25,8 +25,8 @@
         "harp-orm/query": "dev-master",
         "harp-orm/validate": "dev-master",
         "harp-orm/serializer": "dev-master",
+        "harp-orm/money": "dev-master",
         "harp-orm/core": "dev-master",
-        "clippings/currency-convert": "~0.1",
         "omnipay/dummy": "~2.0"
     },
     "require-dev": {

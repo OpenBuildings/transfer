@@ -19,32 +19,8 @@ class AbstractItemGroupTest extends AbstractTestCase
      */
     public function testInitialize()
     {
-        $repo = new Basket('Harp\Transfer\Test\Model\Basket');
+        $repo = Basket::newInstance();
 
         $this->assertTrue($repo->getSoftDelete());
-    }
-
-    /**
-     * @coversNothing
-     */
-    public function testAsserts()
-    {
-        $item = new Model\Basket(['amount' => 'aaa']);
-
-        $item->validate();
-
-        $this->assertEquals(
-            'amount is an invalid number',
-            $item->getErrors()->humanize()
-        );
-
-        $item = new Model\Basket(['currency' => 'aaa']);
-
-        $item->validate();
-
-        $this->assertEquals(
-            'currency is invalid',
-            $item->getErrors()->humanize()
-        );
     }
 }

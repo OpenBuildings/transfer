@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a54e60fae766b4257473aa47194f32fc",
+    "hash": "68ba08c44fc5b5a076db4a3f99513dea",
     "packages": [
         {
             "name": "clippings/currency-convert",
@@ -367,6 +367,50 @@
             ],
             "description": "Light and Flexible ORM without magic",
             "time": "2014-06-19 14:00:35"
+        },
+        {
+            "name": "harp-orm/money",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/harp-orm/money.git",
+                "reference": "a163194e7ae35ad166e2246348ea7b435469635b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/harp-orm/money/zipball/a163194e7ae35ad166e2246348ea7b435469635b",
+                "reference": "a163194e7ae35ad166e2246348ea7b435469635b",
+                "shasum": ""
+            },
+            "require": {
+                "clippings/currency-convert": "~0.1",
+                "harp-orm/core": "dev-master",
+                "harp-orm/harp": "dev-master",
+                "harp-orm/query": "dev-master",
+                "harp-orm/serializer": "dev-master",
+                "harp-orm/validate": "dev-master",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Harp\\Money\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Kerin",
+                    "email": "ikerin@gmail.com",
+                    "homepage": "http://www.openbuildings.com",
+                    "role": "Author"
+                }
+            ],
+            "description": "Helper Traits for Sebastian Bergmann's Money",
+            "time": "2014-06-20 08:22:36"
         },
         {
             "name": "harp-orm/query",
@@ -890,6 +934,7 @@
         "harp-orm/query": 20,
         "harp-orm/validate": 20,
         "harp-orm/serializer": 20,
+        "harp-orm/money": 20,
         "harp-orm/core": 20
     },
     "platform": {

@@ -56,13 +56,13 @@ class InitegrationTest extends AbstractTestCase
         $this->assertQueries([
             'SELECT Product.* FROM Product WHERE (id = 1) LIMIT 1',
             'SELECT Product.* FROM Product WHERE (id = 2) LIMIT 1',
-            'INSERT INTO Basket (isSuccessful, completedAt, responseData, id, amount, currency, deletedAt) VALUES (, NULL, NULL, NULL, 0, "GBP", NULL)',
-            'INSERT INTO Item (id, class, transferId, refId, quantity, price, isFrozen, deletedAt) VALUES (NULL, "Harp\\Transfer\\Test\\Model\\ProductItem", NULL, NULL, 2, 0, , NULL), (NULL, "Harp\\Transfer\\Test\\Model\\ProductItem", NULL, NULL, 4, 0, , NULL)',
+            'INSERT INTO Basket (isSuccessful, completedAt, responseData, id, deletedAt, currency, isFrozen, value) VALUES (, NULL, NULL, NULL, NULL, "GBP", , 0)',
+            'INSERT INTO Item (id, class, transferId, refId, quantity, deletedAt, isFrozen, value) VALUES (NULL, "Harp\\Transfer\\Test\\Model\\ProductItem", NULL, NULL, 2, NULL, , 0), (NULL, "Harp\\Transfer\\Test\\Model\\ProductItem", NULL, NULL, 4, NULL, , 0)',
             'UPDATE Item SET transferId = CASE id WHEN 1 THEN "1" WHEN 2 THEN "1" ELSE transferId END, refId = CASE id WHEN 1 THEN 1 WHEN 2 THEN 2 ELSE refId END WHERE (id IN (1, 2))',
             'SELECT Basket.* FROM Basket WHERE (id IN ("1")) AND (Basket.deletedAt IS NULL)',
             'SELECT Basket.* FROM Basket WHERE (id IN ("1")) AND (Basket.deletedAt IS NULL)',
-            'UPDATE Basket SET isSuccessful = 1, completedAt = "'.$basket->completedAt.'", responseData = "{"amount":"1000.00","reference":"'.$basket->responseData['reference'].'","success":true,"message":"Success"}", amount = 100000 WHERE (id = "1")',
-            'UPDATE Item SET transferId = CASE id WHEN 1 THEN 1 WHEN 2 THEN 1 ELSE transferId END, refId = CASE id WHEN 1 THEN 1 WHEN 2 THEN 2 ELSE refId END, price = CASE id WHEN 1 THEN 10000 WHEN 2 THEN 20000 ELSE price END, isFrozen = CASE id WHEN 1 THEN 1 WHEN 2 THEN 1 ELSE isFrozen END WHERE (id IN (1, 2))',
+            'UPDATE Basket SET isSuccessful = 1, completedAt = "'.$basket->completedAt.'", responseData = "{"amount":"1000.00","reference":"'.$basket->responseData['reference'].'","success":true,"message":"Success"}", isFrozen = 1, value = 100000 WHERE (id = "1")',
+            'UPDATE Item SET transferId = CASE id WHEN 1 THEN 1 WHEN 2 THEN 1 ELSE transferId END, refId = CASE id WHEN 1 THEN 1 WHEN 2 THEN 2 ELSE refId END, isFrozen = CASE id WHEN 1 THEN 1 WHEN 2 THEN 1 ELSE isFrozen END, value = CASE id WHEN 1 THEN 10000 WHEN 2 THEN 20000 ELSE value END WHERE (id IN (1, 2))',
         ]);
     }
 }

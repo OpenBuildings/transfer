@@ -19,7 +19,7 @@ class AbstractItemTest extends AbstractTestCase
      */
     public function testInitialize()
     {
-        $repo = new ProductItem('Harp\Transfer\Test\Model\ProductItem');
+        $repo = ProductItem::newInstance();
 
         $this->assertTrue($repo->getInherited());
         $this->assertTrue($repo->getSoftDelete());
@@ -30,12 +30,12 @@ class AbstractItemTest extends AbstractTestCase
      */
     public function testAsserts()
     {
-        $item = new Model\ProductItem(['price' => 'aaa', 'quantity' => -12]);
+        $item = new Model\ProductItem(['quantity' => -12]);
 
         $item->validate();
 
         $this->assertEquals(
-            'price is an invalid number, quantity should be greater than 0',
+            'quantity should be greater than 0',
             $item->getErrors()->humanize()
         );
 
