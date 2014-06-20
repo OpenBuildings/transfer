@@ -13,6 +13,13 @@ All the Model / Repo classes are abstract so you'll need to implement them in yo
 Usage
 -----
 
+There are 3 main models:
+__AbstractItem__ - Model that can be inherited, providing the basic "item" of a transaction. It can will be "frozen" so the price cannot be changed after the transaction is complete.
+__AbstractItemGroup__ - Groups several items together with ability to get total price, and freeze / unfreeze all items
+__AbstractTransfer__ - Extends AbstractItemGroup, adding omnipay support so that all the items can be actaully purchased.
+
+AbstractTransfer and AbstractItemGroup are not set to be inherited, so that you can have different tables for each of your own Transfer / ItemGroup Models.
+
 License
 -------
 
