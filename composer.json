@@ -16,15 +16,13 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/harp-orm/validate"
+            "url": "https://github.com/harp-orm/money"
         }
     ],
     "require": {
         "php": ">=5.4.0",
         "harp-orm/harp": "dev-master",
         "harp-orm/query": "dev-master",
-        "harp-orm/validate": "dev-master",
-        "harp-orm/serializer": "dev-master",
         "harp-orm/money": "dev-master",
         "harp-orm/core": "dev-master",
         "omnipay/dummy": "~2.0"
