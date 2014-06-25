@@ -1,11 +1,11 @@
 <?php
 
-namespace CL\Transfer\Model;
+namespace CL\Transfer;
 
 use Harp\Harp\AbstractModel;
+use Harp\Money\FreezableValueTrait;
+use Harp\Money\CurrencyTrait;
 use Harp\Core\Model\SoftDeleteTrait;
-use Harp\Money\Model\FreezableValueTrait;
-use Harp\Money\Model\CurrencyTrait;
 use SebastianBergmann\Money\Money;
 
 /**

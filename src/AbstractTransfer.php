@@ -1,6 +1,6 @@
 <?php
 
-namespace CL\Transfer\Model;
+namespace CL\Transfer;
 
 use Omnipay\Common\Message\RequestInterface;
 use Omnipay\Common\GatewayInterface;

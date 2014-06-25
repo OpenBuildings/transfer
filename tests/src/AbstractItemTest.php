@@ -1,14 +1,12 @@
 <?php
 
-namespace CL\Transfer\Test\Model;
+namespace CL\Transfer\Test;
 
-use CL\Transfer\Test\Repo;
-use CL\Transfer\Test\AbstractTestCase;
 use SebastianBergmann\Money\Money;
 use SebastianBergmann\Money\Currency;
 
 /**
- * @coversDefaultClass CL\Transfer\Model\AbstractItem
+ * @coversDefaultClass CL\Transfer\AbstractItem
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.

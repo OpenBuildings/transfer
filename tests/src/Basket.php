@@ -1,10 +1,9 @@
 <?php
 
-namespace CL\Transfer\Test\Model;
+namespace CL\Transfer\Test;
 
-use CL\Transfer\Model\AbstractTransfer;
-use Harp\Money\Model\CurrencyTrait;
-use CL\Transfer\Test\Repo;
+use CL\Transfer\AbstractTransfer;
+use Harp\Money\CurrencyTrait;
 use Omnipay\Common\GatewayInterface;
 
 /**
@@ -14,12 +13,9 @@ use Omnipay\Common\GatewayInterface;
  */
 class Basket extends AbstractTransfer
 {
-    use CurrencyTrait;
+    const REPO = 'CL\Transfer\Test\BasketRepo';
 
-    public function getRepo()
-    {
-        return Repo\Basket::get();
-    }
+    use CurrencyTrait;
 
     public function getItems()
     {

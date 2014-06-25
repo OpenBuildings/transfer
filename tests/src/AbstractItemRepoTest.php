@@ -1,25 +1,22 @@
 <?php
 
-namespace CL\Transfer\Test\Repo;
-
-use CL\Transfer\Test\Model;
-use CL\Transfer\Test\AbstractTestCase;
+namespace CL\Transfer\Test;
 
 /**
- * @coversDefaultClass CL\Transfer\Repo\AbstractItem
+ * @coversDefaultClass CL\Transfer\AbstractItemRepo
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class AbstractItemTest extends AbstractTestCase
+class AbstractItemRepoTest extends AbstractTestCase
 {
     /**
      * @covers ::initialize
      */
     public function testInitialize()
     {
-        $repo = ProductItem::newInstance();
+        $repo = new ProductItemRepo();
 
         $this->assertTrue($repo->getSoftDelete());
     }
@@ -29,7 +26,7 @@ class AbstractItemTest extends AbstractTestCase
      */
     public function testAsserts()
     {
-        $item = new Model\ProductItem(['quantity' => -12]);
+        $item = new ProductItem(['quantity' => -12]);
 
         $item->validate();
 
@@ -38,7 +35,7 @@ class AbstractItemTest extends AbstractTestCase
             $item->getErrors()->humanize()
         );
 
-        $item = new Model\ProductItem(['quantity' => null]);
+        $item = new ProductItem(['quantity' => null]);
 
         $item->validate();
 
@@ -47,7 +44,7 @@ class AbstractItemTest extends AbstractTestCase
             $item->getErrors()->humanize()
         );
 
-        $item = new Model\ProductItem(['quantity' => 'asd123']);
+        $item = new ProductItem(['quantity' => 'asd123']);
 
         $item->validate();
 

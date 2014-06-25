@@ -1,9 +1,9 @@
 <?php
 
-namespace CL\Transfer\Model;
+namespace CL\Transfer;
 
 use Harp\Harp\AbstractModel;
-use Harp\Money\Model\FreezableValueTrait;
+use Harp\Money\FreezableValueTrait;
 use Harp\Core\Model\SoftDeleteTrait;
 
 /**

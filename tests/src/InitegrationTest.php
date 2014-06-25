@@ -2,8 +2,6 @@
 
 namespace CL\Transfer\Test;
 
-use CL\Transfer\Test\Repo;
-use CL\Transfer\Test\Model;
 use Omnipay\Omnipay;
 
 /**
@@ -20,21 +18,22 @@ class InitegrationTest extends AbstractTestCase
      */
     public function testTest()
     {
-        $basket = new Model\Basket();
-        $product1 = Repo\Product::get()->find(1);
-        $product2 = Repo\Product::get()->find(2);
+        $basket = new Basket();
+        $product1 = Product::find(1);
+        $product2 = Product::find(2);
 
-        $item1 = new Model\ProductItem(['quantity' => 2]);
+        $item1 = new ProductItem(['quantity' => 2]);
         $item1->setProduct($product1);
 
-        $item2 = new Model\ProductItem(['quantity' => 4]);
+        $item2 = new ProductItem(['quantity' => 4]);
         $item2->setProduct($product2);
 
-        $basket->getItems()
-            ->add($item1)
-            ->add($item2);
+        $basket
+            ->getItems()
+                ->add($item1)
+                ->add($item2);
 
-        Repo\Basket::get()->save($basket);
+        Basket::save($basket);
 
         $gateway = Omnipay::getFactory()->create('Dummy');
 

@@ -4,7 +4,6 @@ namespace CL\Transfer\Test;
 
 use Harp\Query\DB;
 use PHPUnit_Framework_TestCase;
-use CL\Transfer\Test\Repo;
 use CL\CurrencyConvert\Converter;
 use CL\CurrencyConvert\NullSource;
 
@@ -47,9 +46,9 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
         DB::get()->setLogger($this->logger);
         DB::get()->beginTransaction();
 
-        Repo\Basket::get()->clear();
-        Repo\Product::get()->clear();
-        Repo\ProductItem::get()->clear();
+        BasketRepo::get()->clear();
+        ProductRepo::get()->clear();
+        ProductItemRepo::get()->clear();
     }
 
     public function tearDown()

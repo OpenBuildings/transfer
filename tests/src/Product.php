@@ -1,11 +1,10 @@
 <?php
 
-namespace CL\Transfer\Test\Model;
+namespace CL\Transfer\Test;
 
 use Harp\Harp\AbstractModel;
-use CL\Transfer\Test\Repo;
-use Harp\Money\Model\ValueTrait;
-use Harp\Money\Model\CurrencyTrait;
+use Harp\Money\ValueTrait;
+use Harp\Money\CurrencyTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -14,14 +13,11 @@ use Harp\Money\Model\CurrencyTrait;
  */
 class Product extends AbstractModel
 {
+    const REPO = 'CL\Transfer\Test\ProductRepo';
+
     use ValueTrait;
     use CurrencyTrait;
 
     public $id;
     public $name;
-
-    public function getRepo()
-    {
-        return Repo\Product::get();
-    }
 }

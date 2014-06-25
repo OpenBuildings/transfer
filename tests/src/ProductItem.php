@@ -1,9 +1,8 @@
 <?php
 
-namespace CL\Transfer\Test\Model;
+namespace CL\Transfer\Test;
 
-use CL\Transfer\Model\AbstractItem;
-use CL\Transfer\Test\Repo;
+use CL\Transfer\AbstractItem;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -12,10 +11,7 @@ use CL\Transfer\Test\Repo;
  */
 class ProductItem extends AbstractItem
 {
-    public function getRepo()
-    {
-        return Repo\ProductItem::get();
-    }
+    const REPO = 'CL\Transfer\Test\ProductItemRepo';
 
     public function getProduct()
     {

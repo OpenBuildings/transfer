@@ -1,9 +1,7 @@
 <?php
 
-namespace CL\Transfer\Test\Repo;
+namespace CL\Transfer\Test;
 
-use CL\Transfer\Test\Model;
-use CL\Transfer\Test\AbstractTestCase;
 use Guzzle\Http\Client as HttpClient;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 use Omnipay\Dummy\Message\AuthorizeRequest;
@@ -11,20 +9,20 @@ use Omnipay\Dummy\Message\Response;
 use stdClass;
 
 /**
- * @coversDefaultClass CL\Transfer\Repo\AbstractTransfer
+ * @coversDefaultClass CL\Transfer\AbstractTransferRepo
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class AbstractTransferTest extends AbstractTestCase
+class AbstractTransferRepoTest extends AbstractTestCase
 {
     /**
      * @covers ::initialize
      */
     public function testInitialize()
     {
-        $repo = Basket::newInstance();
+        $repo = new BasketRepo();
 
         $this->assertTrue($repo->getSoftDelete());
     }
@@ -34,7 +32,7 @@ class AbstractTransferTest extends AbstractTestCase
      */
     public function testSerialize()
     {
-        $item = new Model\Basket(['responseData' => '{"amount":"1000.00","reference":"53a376c2a174f","success":true,"message":"Success"}']);
+        $item = new Basket(['responseData' => '{"amount":"1000.00","reference":"53a376c2a174f","success":true,"message":"Success"}']);
 
         $expected = [
             'amount' => '1000.00',

@@ -1,19 +1,19 @@
 <?php
 
-namespace CL\Transfer\Repo;
+namespace CL\Transfer;
 
 use Harp\Harp\AbstractRepo;
 use Harp\Validate\Assert;
-use Harp\Money\Repo\FreezableValueTrait;
+use Harp\Money\FreezableValueRepoTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-abstract class AbstractItem extends AbstractRepo
+abstract class AbstractItemRepo extends AbstractRepo
 {
-    use FreezableValueTrait;
+    use FreezableValueRepoTrait;
 
     public function initialize()
     {

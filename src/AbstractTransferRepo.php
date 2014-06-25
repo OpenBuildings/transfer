@@ -1,6 +1,6 @@
 <?php
 
-namespace CL\Transfer\Repo;
+namespace CL\Transfer;
 
 use Harp\Serializer;
 
@@ -9,14 +9,13 @@ use Harp\Serializer;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-abstract class AbstractTransfer extends AbstractItemGroup
+abstract class AbstractTransferRepo extends AbstractItemGroupRepo
 {
     public function initialize()
     {
         parent::initialize();
 
         $this
-
             ->addSerializers([
                 new Serializer\Json('responseData'),
             ]);
