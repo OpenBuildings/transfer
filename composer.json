@@ -9,21 +9,10 @@
             "role": "Author"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/harp-orm/core"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/harp-orm/money"
-        }
-    ],
     "require": {
         "php": ">=5.4.0",
-        "harp-orm/harp": "dev-master",
-        "harp-orm/money": "dev-master",
-        "harp-orm/core": "dev-master",
+        "harp-orm/harp": "~0.1.0",
+        "harp-orm/money": "~0.1.0",
         "omnipay/dummy": "~2.0"
     },
     "require-dev": {
