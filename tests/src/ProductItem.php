@@ -2,8 +2,9 @@
 
 namespace CL\Transfer\Test;
 
-use CL\Transfer\AbstractItem;
+use CL\Transfer\ItemTrait;
 use Harp\Harp\Config;
+use Harp\Harp\AbstractModel;
 use Harp\Harp\Rel;
 
 /**
@@ -11,14 +12,15 @@ use Harp\Harp\Rel;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class ProductItem extends AbstractItem
+class ProductItem extends AbstractModel
 {
+    use ItemTrait;
+
     public static function initialize(Config $config)
     {
-        parent::initialize($config);
+        ItemTrait::initialize($config);
 
         $config
-            ->setTable('Item')
             ->addRels([
                 new Rel\BelongsTo('basket', $config, Basket::getRepo(), ['key' => 'transferId']),
                 new Rel\BelongsTo('product', $config, Product::getRepo(), ['key' => 'refId']),

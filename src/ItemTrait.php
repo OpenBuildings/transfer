@@ -2,7 +2,6 @@
 
 namespace CL\Transfer;
 
-use Harp\Harp\AbstractModel;
 use Harp\Harp\Config;
 use Harp\Validate\Assert;
 use Harp\Money\FreezableValueTrait;
@@ -13,7 +12,7 @@ use Harp\Harp\Model\SoftDeleteTrait;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-abstract class AbstractItem extends AbstractModel
+trait ItemTrait
 {
     use SoftDeleteTrait;
     use FreezableValueTrait;

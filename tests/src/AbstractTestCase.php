@@ -42,7 +42,7 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
         ]);
 
         DB::get()->execute('ALTER TABLE Basket AUTO_INCREMENT = 1');
-        DB::get()->execute('ALTER TABLE Item AUTO_INCREMENT = 1');
+        DB::get()->execute('ALTER TABLE ProductItem AUTO_INCREMENT = 1');
 
         DB::get()->setLogger($this->logger);
         DB::get()->beginTransaction();

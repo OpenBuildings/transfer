@@ -6,13 +6,13 @@ use SebastianBergmann\Money\Money;
 use SebastianBergmann\Money\Currency;
 
 /**
- * @coversDefaultClass CL\Transfer\AbstractItem
+ * @coversDefaultClass CL\Transfer\ItemTrait
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class AbstractItemTest extends AbstractTestCase
+class ItemTraitTest extends AbstractTestCase
 {
     /**
      * @covers ::initialize

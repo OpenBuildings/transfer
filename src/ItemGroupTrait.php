@@ -2,7 +2,6 @@
 
 namespace CL\Transfer;
 
-use Harp\Harp\AbstractModel;
 use Harp\Harp\Config;
 use Harp\Harp\Model\SoftDeleteTrait;
 use Harp\Money\FreezableValueTrait;
@@ -14,7 +13,7 @@ use SebastianBergmann\Money\Money;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-abstract class AbstractItemGroup extends AbstractModel
+trait ItemGroupTrait
 {
     use SoftDeleteTrait;
     use FreezableValueTrait;
@@ -29,7 +28,7 @@ abstract class AbstractItemGroup extends AbstractModel
 
     public function getSourceValue()
     {
-        $prices = $this->getItems()->get()->map(function (AbstractItem $item) {
+        $prices = $this->getItems()->map(function ($item) {
             return $item->getTotalValue()->getAmount();
         });
 

@@ -2,7 +2,8 @@
 
 namespace CL\Transfer\Test;
 
-use CL\Transfer\AbstractTransfer;
+use Harp\Harp\AbstractModel;
+use CL\Transfer\TransferTrait;
 use Harp\Money\CurrencyTrait;
 use Omnipay\Common\GatewayInterface;
 use Harp\Harp\Rel;
@@ -13,14 +14,14 @@ use Harp\Harp\Config;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class Basket extends AbstractTransfer
+class Basket extends AbstractModel
 {
     use CurrencyTrait;
+    use TransferTrait;
 
     public static function initialize(Config $config)
     {
-        parent::initialize($config);
-
+        TransferTrait::initialize($config);
         CurrencyTrait::initialize($config);
 
         $config
@@ -37,6 +38,6 @@ class Basket extends AbstractTransfer
 
     public function purchase(GatewayInterface $gateway, array $parameters)
     {
-        return parent::execute($gateway, 'purchase', $parameters);
+        return $this->execute($gateway, 'purchase', $parameters);
     }
 }

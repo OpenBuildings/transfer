@@ -12,13 +12,13 @@ use Omnipay\Dummy\Message\Response;
 use DateTime;
 
 /**
- * @coversDefaultClass CL\Transfer\AbstractTransfer
+ * @coversDefaultClass CL\Transfer\TransferTrait
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class AbstractTransferTest extends AbstractTestCase
+class TransferTraitTest extends AbstractTestCase
 {
     /**
      * @covers ::initialize

@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS `Item`;
-CREATE TABLE `Item` (
+DROP TABLE IF EXISTS `ProductItem`;
+CREATE TABLE `ProductItem` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `isFrozen` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   `transferId` int(11) UNSIGNED NULL,

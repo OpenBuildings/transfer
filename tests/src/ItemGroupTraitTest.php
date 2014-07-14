@@ -7,13 +7,13 @@ use SebastianBergmann\Money\Currency;
 use DateTime;
 
 /**
- * @coversDefaultClass CL\Transfer\AbstractItemGroup
+ * @coversDefaultClass CL\Transfer\ItemGroupTrait
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class AbstractItemGroupTest extends AbstractTestCase
+class ItemGroupTraitTest extends AbstractTestCase
 {
     /**
      * @covers ::initialize

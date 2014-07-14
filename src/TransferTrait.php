@@ -13,11 +13,13 @@ use DateTime;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-abstract class AbstractTransfer extends AbstractItemGroup
+trait TransferTrait
 {
+    use ItemGroupTrait;
+
     public static function initialize(Config $config)
     {
-        parent::initialize($config);
+        ItemGroupTrait::initialize($config);
 
         $config
             ->addSerializers([
