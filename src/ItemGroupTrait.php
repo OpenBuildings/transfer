@@ -70,14 +70,16 @@ trait ItemGroupTrait
 
     public function performFreeze()
     {
-        $this->freezeItems();
-        $this->freezeValue();
+        $this
+            ->freezeItems()
+            ->freezeValue();
     }
 
     public function performUnfreeze()
     {
-        $this->unfreezeItems();
-        $this->unfreezeValue();
+        $this
+            ->unfreezeItems()
+            ->unfreezeValue();
     }
 
     abstract public function getItems();
