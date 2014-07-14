@@ -4,6 +4,8 @@ namespace CL\Transfer;
 
 use Omnipay\Common\Message\RequestInterface;
 use Omnipay\Common\GatewayInterface;
+use Harp\Harp\Config;
+use Harp\Serializer\Json;
 use DateTime;
 
 /**
@@ -13,6 +15,16 @@ use DateTime;
  */
 abstract class AbstractTransfer extends AbstractItemGroup
 {
+    public static function initialize(Config $config)
+    {
+        parent::initialize($config);
+
+        $config
+            ->addSerializers([
+                new Json('responseData'),
+            ]);
+    }
+
     public $isSuccessful = false;
     public $completedAt;
     public $responseData;
@@ -82,7 +94,7 @@ abstract class AbstractTransfer extends AbstractItemGroup
 
         $response = $this->sendRequest($request);
 
-        $this->getRepo()->save($this);
+        static::save($this);
 
         return $response;
     }

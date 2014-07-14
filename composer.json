@@ -11,8 +11,8 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "harp-orm/harp": "~0.1.0",
-        "harp-orm/money": "~0.1.0",
+        "harp-orm/harp": "~0.3.0",
+        "harp-orm/money": "~0.2.0",
         "omnipay/dummy": "~2.0"
     },
     "require-dev": {

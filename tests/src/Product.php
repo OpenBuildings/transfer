@@ -3,8 +3,10 @@
 namespace CL\Transfer\Test;
 
 use Harp\Harp\AbstractModel;
+use Harp\Harp\Config;
 use Harp\Money\ValueTrait;
 use Harp\Money\CurrencyTrait;
+
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -13,10 +15,14 @@ use Harp\Money\CurrencyTrait;
  */
 class Product extends AbstractModel
 {
-    const REPO = 'CL\Transfer\Test\ProductRepo';
-
     use ValueTrait;
     use CurrencyTrait;
+
+    public static function initialize(Config $config)
+    {
+        ValueTrait::initialize($config);
+        CurrencyTrait::initialize($config);
+    }
 
     public $id;
     public $name;

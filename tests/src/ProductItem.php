@@ -3,6 +3,8 @@
 namespace CL\Transfer\Test;
 
 use CL\Transfer\AbstractItem;
+use Harp\Harp\Config;
+use Harp\Harp\Rel;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -11,26 +13,36 @@ use CL\Transfer\AbstractItem;
  */
 class ProductItem extends AbstractItem
 {
-    const REPO = 'CL\Transfer\Test\ProductItemRepo';
+    public static function initialize(Config $config)
+    {
+        parent::initialize($config);
+
+        $config
+            ->setTable('Item')
+            ->addRels([
+                new Rel\BelongsTo('basket', $config, Basket::getRepo(), ['key' => 'transferId']),
+                new Rel\BelongsTo('product', $config, Product::getRepo(), ['key' => 'refId']),
+            ]);
+    }
 
     public function getProduct()
     {
-        return $this->getLink('product')->get();
+        return $this->get('product');
     }
 
     public function setProduct(Product $product)
     {
-        return $this->getLink('product')->set($product);
+        return $this->set('product', $product);
     }
 
     public function getBasket()
     {
-        return $this->getLink('basket')->get();
+        return $this->get('basket');
     }
 
     public function setBasket(Basket $basket)
     {
-        return $this->getLink('basket')->set($basket);
+        return $this->set('basket', $basket);
     }
 
     public function getCurrency()

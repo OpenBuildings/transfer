@@ -3,9 +3,10 @@
 namespace CL\Transfer;
 
 use Harp\Harp\AbstractModel;
+use Harp\Harp\Config;
+use Harp\Harp\Model\SoftDeleteTrait;
 use Harp\Money\FreezableValueTrait;
 use Harp\Money\CurrencyTrait;
-use Harp\Core\Model\SoftDeleteTrait;
 use SebastianBergmann\Money\Money;
 
 /**
@@ -17,6 +18,12 @@ abstract class AbstractItemGroup extends AbstractModel
 {
     use SoftDeleteTrait;
     use FreezableValueTrait;
+
+    public static function initialize(Config $config)
+    {
+        SoftDeleteTrait::initialize($config);
+        FreezableValueTrait::initialize($config);
+    }
 
     public $id;
 

@@ -3,8 +3,10 @@
 namespace CL\Transfer;
 
 use Harp\Harp\AbstractModel;
+use Harp\Harp\Config;
+use Harp\Validate\Assert;
 use Harp\Money\FreezableValueTrait;
-use Harp\Core\Model\SoftDeleteTrait;
+use Harp\Harp\Model\SoftDeleteTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -15,6 +17,19 @@ abstract class AbstractItem extends AbstractModel
 {
     use SoftDeleteTrait;
     use FreezableValueTrait;
+
+    public static function initialize(Config $config)
+    {
+        SoftDeleteTrait::initialize($config);
+        FreezableValueTrait::initialize($config);
+
+        $config
+            ->addAsserts([
+                new Assert\Present('quantity'),
+                new Assert\Number('quantity'),
+                new Assert\GreaterThan('quantity', 0),
+            ]);
+    }
 
     public $id;
     public $transferId;

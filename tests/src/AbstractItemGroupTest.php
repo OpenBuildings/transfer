@@ -16,6 +16,16 @@ use DateTime;
 class AbstractItemGroupTest extends AbstractTestCase
 {
     /**
+     * @covers ::initialize
+     */
+    public function testInitialize()
+    {
+        $repo = Basket::getRepo();
+
+        $this->assertTrue($repo->getSoftDelete());
+    }
+
+    /**
      * @covers ::getSourceValue
      */
     public function testGetSourceValue()

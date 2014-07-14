@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5696c038ade0551ef8913352ae3df316",
+    "hash": "4cc312892ee8063ee1b8ea3bf7e05544",
     "packages": [
         {
             "name": "clippings/currency-convert",
@@ -279,69 +279,25 @@
             "time": "2014-05-01 21:36:02"
         },
         {
-            "name": "harp-orm/core",
-            "version": "0.1.0",
+            "name": "harp-orm/harp",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/harp-orm/core.git",
-                "reference": "db7511aba14554f08bb7f0862e523027d0b252bd"
+                "url": "https://github.com/harp-orm/harp.git",
+                "reference": "ddd15e56087ee7f5de9452cbbfe131c4d73e83ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/core/zipball/db7511aba14554f08bb7f0862e523027d0b252bd",
-                "reference": "db7511aba14554f08bb7f0862e523027d0b252bd",
+                "url": "https://api.github.com/repos/harp-orm/harp/zipball/ddd15e56087ee7f5de9452cbbfe131c4d73e83ea",
+                "reference": "ddd15e56087ee7f5de9452cbbfe131c4d73e83ea",
                 "shasum": ""
             },
             "require": {
+                "harp-orm/query": "~0.2.0",
                 "harp-orm/serializer": "~0.1.0",
                 "harp-orm/util": "~0.2.0",
                 "harp-orm/validate": "~0.2.0",
                 "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "clippings/env-backup": "~0.2.5",
-                "clippings/phpunit-extensions": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Harp\\Core\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Ivan Kerin",
-                    "email": "ikerin@gmail.com",
-                    "homepage": "http://www.openbuildings.com",
-                    "role": "Author"
-                }
-            ],
-            "description": "DataMapper style ORM Core Componenets",
-            "time": "2014-06-26 12:44:21"
-        },
-        {
-            "name": "harp-orm/harp",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/harp-orm/harp.git",
-                "reference": "706281cac51c24dc7f88f72a9456c1123e4dabbd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/harp/zipball/706281cac51c24dc7f88f72a9456c1123e4dabbd",
-                "reference": "706281cac51c24dc7f88f72a9456c1123e4dabbd",
-                "shasum": ""
-            },
-            "require": {
-                "harp-orm/core": "~0.1.0",
-                "harp-orm/query": "~0.2.1",
-                "php": ">=5.4.0",
-                "psr/log": "~1.0"
             },
             "type": "library",
             "autoload": {
@@ -362,25 +318,25 @@
                 }
             ],
             "description": "Light and Flexible ORM without magic",
-            "time": "2014-06-26 13:37:35"
+            "time": "2014-07-11 13:26:10"
         },
         {
             "name": "harp-orm/money",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/money.git",
-                "reference": "3905a16cf4aa1147e2bb058974ecf51da9ed53ad"
+                "reference": "eb695a4c480c0a30bba7c6ee565ceda1e214ea4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/money/zipball/3905a16cf4aa1147e2bb058974ecf51da9ed53ad",
-                "reference": "3905a16cf4aa1147e2bb058974ecf51da9ed53ad",
+                "url": "https://api.github.com/repos/harp-orm/money/zipball/eb695a4c480c0a30bba7c6ee565ceda1e214ea4e",
+                "reference": "eb695a4c480c0a30bba7c6ee565ceda1e214ea4e",
                 "shasum": ""
             },
             "require": {
                 "clippings/currency-convert": "~0.1",
-                "harp-orm/harp": "~0.1.0",
+                "harp-orm/harp": "~0.3.0",
                 "php": ">=5.4.0"
             },
             "type": "library",
@@ -402,20 +358,20 @@
                 }
             ],
             "description": "Helper Traits for Sebastian Bergmann's Money",
-            "time": "2014-06-26 15:40:50"
+            "time": "2014-07-14 09:22:06"
         },
         {
             "name": "harp-orm/query",
-            "version": "0.2.1",
+            "version": "0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/query.git",
-                "reference": "940064a69ac18a2b477d495045c177b8f3adb0ed"
+                "reference": "a0627bedc11d062580fc33b71e57f9d8df45bdbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/query/zipball/940064a69ac18a2b477d495045c177b8f3adb0ed",
-                "reference": "940064a69ac18a2b477d495045c177b8f3adb0ed",
+                "url": "https://api.github.com/repos/harp-orm/query/zipball/a0627bedc11d062580fc33b71e57f9d8df45bdbc",
+                "reference": "a0627bedc11d062580fc33b71e57f9d8df45bdbc",
                 "shasum": ""
             },
             "require": {
@@ -450,7 +406,7 @@
                 }
             ],
             "description": "SQL Builder for PDO",
-            "time": "2014-06-23 11:33:59"
+            "time": "2014-07-07 11:52:30"
         },
         {
             "name": "harp-orm/serializer",
@@ -524,16 +480,16 @@
         },
         {
             "name": "harp-orm/validate",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/validate.git",
-                "reference": "5e110e9d195bb3ea36910c99c05a33320c8b7326"
+                "reference": "bc3e94db54fbeb8f68b6e24b674b3382bc314d49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/validate/zipball/5e110e9d195bb3ea36910c99c05a33320c8b7326",
-                "reference": "5e110e9d195bb3ea36910c99c05a33320c8b7326",
+                "url": "https://api.github.com/repos/harp-orm/validate/zipball/bc3e94db54fbeb8f68b6e24b674b3382bc314d49",
+                "reference": "bc3e94db54fbeb8f68b6e24b674b3382bc314d49",
                 "shasum": ""
             },
             "type": "library",
@@ -555,7 +511,7 @@
                 }
             ],
             "description": "Object validaiton library",
-            "time": "2014-06-21 19:53:49"
+            "time": "2014-07-09 14:58:00"
         },
         {
             "name": "omnipay/common",
@@ -799,17 +755,17 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "cb62ec8dd05893fc8e4f0e6e21e326e1fc731fe8"
+                "reference": "84533bf98da5486b9395a1d95e9184e04e14aad3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/cb62ec8dd05893fc8e4f0e6e21e326e1fc731fe8",
-                "reference": "cb62ec8dd05893fc8e4f0e6e21e326e1fc731fe8",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/84533bf98da5486b9395a1d95e9184e04e14aad3",
+                "reference": "84533bf98da5486b9395a1d95e9184e04e14aad3",
                 "shasum": ""
             },
             "require": {
@@ -854,21 +810,21 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2014-04-29 10:13:57"
+            "time": "2014-07-08 12:21:33"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "target-dir": "Symfony/Component/HttpFoundation",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "044085422005aa3258fb3f710a7bf0202011f259"
+                "reference": "d0a2aa18d719606d7e4d21319096c0586aa7fc25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/044085422005aa3258fb3f710a7bf0202011f259",
-                "reference": "044085422005aa3258fb3f710a7bf0202011f259",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/d0a2aa18d719606d7e4d21319096c0586aa7fc25",
+                "reference": "d0a2aa18d719606d7e4d21319096c0586aa7fc25",
                 "shasum": ""
             },
             "require": {
@@ -909,7 +865,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2014-05-26 19:02:40"
+            "time": "2014-07-08 12:21:33"
         }
     ],
     "packages-dev": [

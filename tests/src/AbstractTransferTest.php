@@ -21,6 +21,33 @@ use DateTime;
 class AbstractTransferTest extends AbstractTestCase
 {
     /**
+     * @covers ::initialize
+     */
+    public function testInitialize()
+    {
+        $repo = Basket::getRepo();
+
+        $this->assertTrue($repo->getSoftDelete());
+    }
+
+    /**
+     * @coversNothing
+     */
+    public function testSerialize()
+    {
+        $item = new Basket(['responseData' => '{"amount":"1000.00","reference":"53a376c2a174f","success":true,"message":"Success"}']);
+
+        $expected = [
+            'amount' => '1000.00',
+            'reference' => '53a376c2a174f',
+            'success' => true,
+            'message' => 'Success',
+        ];
+
+        $this->assertEquals($expected, $item->responseData);
+    }
+
+    /**
      * @covers ::getCompletedAt
      * @covers ::setCompletedAt
      */
