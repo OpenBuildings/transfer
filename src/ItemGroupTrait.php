@@ -26,6 +26,11 @@ trait ItemGroupTrait
 
     public $id;
 
+    /**
+     * Return a sum from all the item values
+     *
+     * @return Money
+     */
     public function getSourceValue()
     {
         $prices = $this->getItems()->map(function ($item) {
@@ -35,6 +40,11 @@ trait ItemGroupTrait
         return new Money(array_sum($prices), $this->getCurrency());
     }
 
+    /**
+     * Call freeze on all the items
+     *
+     * @return static
+     */
     public function freezeItems()
     {
         foreach ($this->getItems() as $item) {
@@ -44,6 +54,11 @@ trait ItemGroupTrait
         return $this;
     }
 
+    /**
+     * Call unfreeze on all the items
+     *
+     * @return static
+     */
     public function unfreezeItems()
     {
         foreach ($this->getItems() as $item) {

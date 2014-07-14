@@ -6,20 +6,25 @@ Transfer
 [![Code Coverage](https://scrutinizer-ci.com/g/clippings/transfer/badges/coverage.png)](https://scrutinizer-ci.com/g/clippings/transfer/)
 [![Latest Stable Version](https://poser.pugx.org/clippings/transfer/v/stable.png)](https://packagist.org/packages/clippings/transfer)
 
-This is a solid foundation to implement all sorts of monetary transactions and persist them in the database.
+This is a general foundation to implement all sorts of monetary transactions and persist them in the database.
 Uses Omnipay for performing the transactions themselves.
-All the Model / Repo classes are abstract so you'll need to implement them in your own code.
 
 Usage
 -----
 
-There are 3 main abstract models:
+There are 3 main traits to assign to your models:
 
-- __AbstractItem__ - Model that can be inherited, providing the basic "item" of a transaction. It can will be "frozen" so the price cannot be changed after the transaction is complete.
-- __AbstractItemGroup__ - Groups several items together with ability to get total price, and freeze / unfreeze all items
-- __AbstractTransfer__ - Extends AbstractItemGroup, adding omnipay support so that all the items can be actaully purchased.
+__Item Group Trait__
 
-AbstractTransfer and AbstractItemGroup are not set to be inherited, so that you can have different tables for each of your own Transfer / ItemGroup Models.
+This is just a group of multiple __Item Trait__. Adds freezable and soft delete trait. and allows freezing / unfreezing all the items, associated with it.
+
+__Item Trait__
+
+This is a single monetary "item". Adds freezable and soft delete.
+
+__Transfer Trait__
+
+This initiates request to payment processors and stores the responses in the database. Requires "getValue()" to return a Money Object.
 
 License
 -------
