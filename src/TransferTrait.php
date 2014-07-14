@@ -6,6 +6,7 @@ use Omnipay\Common\Message\RequestInterface;
 use Omnipay\Common\GatewayInterface;
 use Harp\Harp\Config;
 use Harp\Serializer\Json;
+use Harp\Money\FreezableValueTrait;
 use DateTime;
 
 /**
@@ -15,12 +16,12 @@ use DateTime;
  */
 trait TransferTrait
 {
-    use ItemGroupTrait;
+    abstract public function getId();
+    abstract public function getValue();
+    abstract public function getCurrency();
 
     public static function initialize(Config $config)
     {
-        ItemGroupTrait::initialize($config);
-
         $config
             ->addSerializers([
                 new Json('responseData'),
@@ -56,19 +57,8 @@ trait TransferTrait
 
     public function getRequestParameters(array $defaultParameters)
     {
-        $parameters = [];
-
-        foreach ($this->getItems() as $item) {
-            $parameters['items'] []= [
-                'name' => $item->getName(),
-                'description' => $item->getDescription(),
-                'price' => (float) ($item->getValue()->getAmount() / 100),
-                'quantity' => $item->quantity,
-            ];
-        }
-
         $parameters['amount'] = (float) ($this->getValue()->getAmount() / 100);
-        $parameters['currency'] = $this->currency;
+        $parameters['currency'] = $this->getCurrency()->getCurrencyCode();
         $parameters['transactionReference'] = $this->getId();
 
         return array_merge_recursive($parameters, $defaultParameters);

@@ -92,20 +92,6 @@ class TransferTraitTest extends AbstractTestCase
                 ->add(new ProductItem(['id' => 2, 'value' => 2000, 'isFrozen' => true, 'quantity' => 3]));
 
         $expected = [
-            'items' => [
-                [
-                    'name' => 1,
-                    'description' => 'Item',
-                    'price' => 10,
-                    'quantity' => 2,
-                ],
-                [
-                    'name' => 2,
-                    'description' => 'Item',
-                    'price' => 20,
-                    'quantity' => 3,
-                ]
-            ],
             'amount' => 80,
             'currency' => 'BGN',
             'transactionReference' => 20,

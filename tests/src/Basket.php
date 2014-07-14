@@ -4,6 +4,7 @@ namespace CL\Transfer\Test;
 
 use Harp\Harp\AbstractModel;
 use CL\Transfer\TransferTrait;
+use CL\Transfer\ItemGroupTrait;
 use Harp\Money\CurrencyTrait;
 use Omnipay\Common\GatewayInterface;
 use Harp\Harp\Rel;
@@ -18,10 +19,12 @@ class Basket extends AbstractModel
 {
     use CurrencyTrait;
     use TransferTrait;
+    use ItemGroupTrait;
 
     public static function initialize(Config $config)
     {
         TransferTrait::initialize($config);
+        ItemGroupTrait::initialize($config);
         CurrencyTrait::initialize($config);
 
         $config
