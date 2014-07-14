@@ -35,22 +35,34 @@ trait ItemGroupTrait
         return new Money(array_sum($prices), $this->getCurrency());
     }
 
-    public function performFreeze()
+    public function freezeItems()
     {
         foreach ($this->getItems() as $item) {
             $item->freeze();
         }
 
-        $this->setValue($this->getValue());
+        return $this;
     }
 
-    public function performUnfreeze()
+    public function unfreezeItems()
     {
         foreach ($this->getItems() as $item) {
             $item->unfreeze();
         }
 
-        $this->value = null;
+        return $this;
+    }
+
+    public function performFreeze()
+    {
+        $this->freezeItems();
+        $this->freezeValue();
+    }
+
+    public function performUnfreeze()
+    {
+        $this->unfreezeItems();
+        $this->unfreezeValue();
     }
 
     abstract public function getItems();

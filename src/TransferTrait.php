@@ -18,7 +18,6 @@ trait TransferTrait
 {
     abstract public function getId();
     abstract public function getValue();
-    abstract public function getCurrency();
 
     public static function initialize(Config $config)
     {
@@ -55,13 +54,18 @@ trait TransferTrait
         return $this->responseData !== null;
     }
 
-    public function getRequestParameters(array $defaultParameters)
+    public function getTransferParameters()
     {
         $parameters['amount'] = (float) ($this->getValue()->getAmount() / 100);
-        $parameters['currency'] = $this->getCurrency()->getCurrencyCode();
+        $parameters['currency'] = $this->getValue()->getCurrency()->getCurrencyCode();
         $parameters['transactionReference'] = $this->getId();
 
-        return array_merge_recursive($parameters, $defaultParameters);
+        return $parameters;
+    }
+
+    public function getRequestParameters(array $defaultParameters)
+    {
+        return array_merge_recursive($this->getTransferParameters(), $defaultParameters);
     }
 
     public function sendRequest(RequestInterface $request)
@@ -80,8 +84,6 @@ trait TransferTrait
 
     public function execute(GatewayInterface $gateway, $method, array $parameters)
     {
-        $this->freeze();
-
         $request = $gateway->$method($this->getRequestParameters($parameters));
 
         $response = $this->sendRequest($request);

@@ -326,12 +326,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/money.git",
-                "reference": "eb695a4c480c0a30bba7c6ee565ceda1e214ea4e"
+                "reference": "ba88fbd48f23791aa1124d3c2d6ccca35be39cd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/money/zipball/eb695a4c480c0a30bba7c6ee565ceda1e214ea4e",
-                "reference": "eb695a4c480c0a30bba7c6ee565ceda1e214ea4e",
+                "url": "https://api.github.com/repos/harp-orm/money/zipball/ba88fbd48f23791aa1124d3c2d6ccca35be39cd0",
+                "reference": "ba88fbd48f23791aa1124d3c2d6ccca35be39cd0",
                 "shasum": ""
             },
             "require": {
@@ -358,7 +358,7 @@
                 }
             ],
             "description": "Helper Traits for Sebastian Bergmann's Money",
-            "time": "2014-07-14 09:22:06"
+            "time": "2014-07-14 13:40:11"
         },
         {
             "name": "harp-orm/query",

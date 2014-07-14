@@ -47,6 +47,8 @@ class InitegrationTest extends AbstractTestCase
             'clientIp' => '192.168.0.1',
         ];
 
+        $basket->freeze();
+
         $response = $basket->purchase($gateway, $parameters);
 
         $this->assertTrue($response->isSuccessful());

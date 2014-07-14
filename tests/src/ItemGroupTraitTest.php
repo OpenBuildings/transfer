@@ -41,6 +41,7 @@ class ItemGroupTraitTest extends AbstractTestCase
 
     /**
      * @covers ::performFreeze
+     * @covers ::freezeItems
      */
     public function testPerformFreeze()
     {
@@ -78,6 +79,7 @@ class ItemGroupTraitTest extends AbstractTestCase
 
     /**
      * @covers ::performUnfreeze
+     * @covers ::unfreezeItems
      */
     public function testUnfreeze()
     {

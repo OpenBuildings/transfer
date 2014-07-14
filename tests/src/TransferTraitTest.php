@@ -81,6 +81,7 @@ class TransferTraitTest extends AbstractTestCase
     }
 
     /**
+     * @covers ::getTransferParameters
      * @covers ::getRequestParameters
      */
     public function testGetRequestParameters()
@@ -172,7 +173,7 @@ class TransferTraitTest extends AbstractTestCase
     {
         $basket = $this->getMock(
             __NAMESPACE__.'\Basket',
-            ['getRequestParameters', 'sendRequest', 'freeze']
+            ['getRequestParameters', 'sendRequest']
         );
 
         $gateway = $this->getMock(
@@ -182,11 +183,6 @@ class TransferTraitTest extends AbstractTestCase
 
         $request = new AuthorizeRequest(new HttpClient(), new HttpRequest());
         $response = new Response($request, ['data']);
-
-        $basket
-            ->expects($this->once())
-            ->method('freeze')
-            ->will($this->returnSelf());
 
         $basket
             ->expects($this->once())
