@@ -30,9 +30,11 @@ class Basket extends AbstractModel
         $config
             ->setTable('Basket')
             ->addRels([
-                new Rel\HasMany('items', $config, ProductItem::getRepo(), ['foreignKey' => 'transferId']),
+                new Rel\HasMany('items', $config, ProductItem::getRepo()),
             ]);
     }
+
+    public $id;
 
     public function getItems()
     {

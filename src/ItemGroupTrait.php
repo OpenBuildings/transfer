@@ -24,8 +24,6 @@ trait ItemGroupTrait
         FreezableValueTrait::initialize($config);
     }
 
-    public $id;
-
     /**
      * Return a sum from all the item values
      *

@@ -30,9 +30,6 @@ trait ItemTrait
             ]);
     }
 
-    public $id;
-    public $transferId;
-    public $refId;
     public $quantity = 1;
 
     public function getDescription()

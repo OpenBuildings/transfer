@@ -22,10 +22,14 @@ class ProductItem extends AbstractModel
 
         $config
             ->addRels([
-                new Rel\BelongsTo('basket', $config, Basket::getRepo(), ['key' => 'transferId']),
-                new Rel\BelongsTo('product', $config, Product::getRepo(), ['key' => 'refId']),
+                new Rel\BelongsTo('basket', $config, Basket::getRepo()),
+                new Rel\BelongsTo('product', $config, Product::getRepo()),
             ]);
     }
+
+    public $id;
+    public $basketId;
+    public $productId;
 
     public function getProduct()
     {
