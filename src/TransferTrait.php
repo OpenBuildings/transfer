@@ -86,6 +86,8 @@ trait TransferTrait
     {
         $request = $gateway->$method($this->getRequestParameters($parameters));
 
+        $this->assertValid();
+
         $response = $this->sendRequest($request);
 
         static::save($this);

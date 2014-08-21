@@ -173,7 +173,7 @@ class TransferTraitTest extends AbstractTestCase
     {
         $basket = $this->getMock(
             __NAMESPACE__.'\Basket',
-            ['getRequestParameters', 'sendRequest']
+            ['getRequestParameters', 'sendRequest', 'assertValid']
         );
 
         $gateway = $this->getMock(
@@ -189,6 +189,11 @@ class TransferTraitTest extends AbstractTestCase
             ->method('getRequestParameters')
             ->with($this->equalTo(['test' => 'test2']))
             ->will($this->returnValue(['test2' => 'test3']));
+
+        $basket
+            ->expects($this->exactly(2))
+            ->method('assertValid')
+            ->will($this->returnSelf());
 
         $basket
             ->expects($this->once())
