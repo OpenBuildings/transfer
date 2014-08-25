@@ -6,6 +6,7 @@ use Harp\Harp\Config;
 use Harp\Harp\Model\SoftDeleteTrait;
 use Harp\Money\FreezableValueTrait;
 use Harp\Money\CurrencyTrait;
+use Harp\Money\MoneyObjects;
 use SebastianBergmann\Money\Money;
 
 /**
@@ -31,11 +32,7 @@ trait ItemGroupTrait
      */
     public function getSourceValue()
     {
-        $prices = $this->getItems()->map(function ($item) {
-            return $item->getTotalValue()->getAmount();
-        });
-
-        return new Money(array_sum($prices), $this->getCurrency());
+        return MoneyObjects::sum($this->getItems()->invoke('getTotalValue'));
     }
 
     /**
