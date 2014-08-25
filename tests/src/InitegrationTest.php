@@ -60,8 +60,6 @@ class InitegrationTest extends AbstractTestCase
             'INSERT INTO Basket (id, currency, isSuccessful, completedAt, responseData, deletedAt, isFrozen, value) VALUES (NULL, "GBP", , NULL, NULL, NULL, , 0)',
             'INSERT INTO ProductItem (id, basketId, productId, quantity, deletedAt, isFrozen, value) VALUES (NULL, NULL, NULL, 2, NULL, , 0), (NULL, NULL, NULL, 4, NULL, , 0)',
             'UPDATE ProductItem SET basketId = CASE id WHEN 1 THEN "1" WHEN 2 THEN "1" ELSE basketId END, productId = CASE id WHEN 1 THEN 1 WHEN 2 THEN 2 ELSE productId END WHERE (id IN (1, 2))',
-            'SELECT Basket.* FROM Basket WHERE (id IN ("1")) AND (Basket.deletedAt IS NULL)',
-            'SELECT Basket.* FROM Basket WHERE (id IN ("1")) AND (Basket.deletedAt IS NULL)',
             'UPDATE Basket SET isSuccessful = 1, completedAt = "'.$basket->completedAt.'", responseData = "{"amount":"1000.00","reference":"'.$basket->responseData['reference'].'","success":true,"message":"Success"}", isFrozen = 1, value = 100000 WHERE (id = "1")',
             'UPDATE ProductItem SET isFrozen = CASE id WHEN 1 THEN 1 WHEN 2 THEN 1 ELSE isFrozen END, value = CASE id WHEN 1 THEN 10000 WHEN 2 THEN 20000 ELSE value END WHERE (id IN (1, 2))',
         ]);

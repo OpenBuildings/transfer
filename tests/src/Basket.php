@@ -30,7 +30,7 @@ class Basket extends AbstractModel
         $config
             ->setTable('Basket')
             ->addRels([
-                new Rel\HasMany('items', $config, ProductItem::getRepo()),
+                new Rel\HasMany('items', $config, ProductItem::getRepo(), ['inverseOf' => 'basket']),
             ]);
     }
 

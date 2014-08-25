@@ -22,7 +22,7 @@ class ProductItem extends AbstractModel
 
         $config
             ->addRels([
-                new Rel\BelongsTo('basket', $config, Basket::getRepo()),
+                new Rel\BelongsTo('basket', $config, Basket::getRepo(), ['inverseOf' => 'items']),
                 new Rel\BelongsTo('product', $config, Product::getRepo()),
             ]);
     }

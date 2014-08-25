@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6423e0039c34deabb210fb6e6232fb38",
+    "hash": "404a5ebedd62d35d882576944b845638",
     "packages": [
         {
             "name": "clippings/currency-convert",
@@ -284,13 +284,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/harp.git",
-                "reference": "1d8847eb5c9495db33da41ab1cd1b1fa5e724a5f"
+                "reference": "43c4dc3529ebb8bbf7e37c7c9fb0ceb5a468c964"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/harp-orm/harp/zipball/43c4dc3529ebb8bbf7e37c7c9fb0ceb5a468c964",
+                "reference": "43c4dc3529ebb8bbf7e37c7c9fb0ceb5a468c964",
+                "shasum": ""
             },
             "require": {
                 "harp-orm/query": "~0.2.0",
                 "harp-orm/serializer": "~0.1.0",
                 "harp-orm/util": "~0.2.2",
-                "harp-orm/validate": "~0.2.0",
+                "harp-orm/validate": "~0.3.0",
                 "php": ">=5.4.0"
             },
             "type": "library",
@@ -299,6 +305,7 @@
                     "Harp\\Harp\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -310,20 +317,20 @@
                 }
             ],
             "description": "Light and Flexible ORM without magic",
-            "time": "2014-08-21 09:18:23"
+            "time": "2014-08-21 13:59:13"
         },
         {
             "name": "harp-orm/money",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/money.git",
-                "reference": "f4a67f336a03b667f30fff7a2ed51aa89e7c8fa9"
+                "reference": "4df8376c39b358d497ce43e38831b9ec8b390b8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/money/zipball/f4a67f336a03b667f30fff7a2ed51aa89e7c8fa9",
-                "reference": "f4a67f336a03b667f30fff7a2ed51aa89e7c8fa9",
+                "url": "https://api.github.com/repos/harp-orm/money/zipball/4df8376c39b358d497ce43e38831b9ec8b390b8d",
+                "reference": "4df8376c39b358d497ce43e38831b9ec8b390b8d",
                 "shasum": ""
             },
             "require": {
@@ -337,7 +344,6 @@
                     "Harp\\Money\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -345,12 +351,15 @@
                 {
                     "name": "Ivan Kerin",
                     "email": "ikerin@gmail.com",
-                    "homepage": "http://www.openbuildings.com",
                     "role": "Author"
                 }
             ],
             "description": "Helper Traits for Sebastian Bergmann's Money",
-            "time": "2014-07-14 14:40:45"
+            "support": {
+                "source": "https://github.com/harp-orm/money/tree/0.2.1",
+                "issues": "https://github.com/harp-orm/money/issues"
+            },
+            "time": "2014-08-25 08:24:10"
         },
         {
             "name": "harp-orm/query",
@@ -472,16 +481,16 @@
         },
         {
             "name": "harp-orm/validate",
-            "version": "0.2.2",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/validate.git",
-                "reference": "fb3f154386a32f3873a3f4468d4c7061eef3a84d"
+                "reference": "7d23bcabde80eac6072bcbd61f477efaaa598e99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/validate/zipball/fb3f154386a32f3873a3f4468d4c7061eef3a84d",
-                "reference": "fb3f154386a32f3873a3f4468d4c7061eef3a84d",
+                "url": "https://api.github.com/repos/harp-orm/validate/zipball/7d23bcabde80eac6072bcbd61f477efaaa598e99",
+                "reference": "7d23bcabde80eac6072bcbd61f477efaaa598e99",
                 "shasum": ""
             },
             "type": "library",
@@ -502,7 +511,7 @@
                 }
             ],
             "description": "Object validaiton library",
-            "time": "2014-08-21 09:11:35"
+            "time": "2014-08-21 13:47:40"
         },
         {
             "name": "omnipay/common",

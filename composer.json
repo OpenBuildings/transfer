@@ -12,7 +12,7 @@
     "require": {
         "php": ">=5.4.0",
         "harp-orm/harp": "~0.3.0",
-        "harp-orm/money": "~0.2.0",
+        "harp-orm/money": "~0.2.1",
         "omnipay/dummy": "~2.0"
     },
     "require-dev": {
